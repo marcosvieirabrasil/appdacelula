@@ -1,0 +1,96 @@
+/Users/macbook/.zprofile:9: no such file or directory: /usr/local/bin/brew
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090a" />
+    <meta name="description" content="App da Célula: um espaço para preparar e conduzir encontros." />
+    <title>App da Célula</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="logo.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand brand-logo" href="#inicio" aria-label="App da Célula, início"><img src="assets/app-da-celula-logo.png" alt="App da Célula" /></a>
+        <div class="workspace-label">ENCONTRO DESTA SEMANA</div>
+        <div class="workspace-switcher"><span class="workspace-dot"></span><span>Casa da Graça</span><span class="chevron" aria-hidden="true"></span></div>
+        <nav class="side-nav">
+          <button class="nav-item active" data-nav="inicio" aria-current="page"><span class="nav-icon" data-icon="home"></span>Visão geral</button>
+          <button class="nav-item" data-nav="dinamicas"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</button>
+          <button class="nav-item" data-nav="roteiro"><span class="nav-icon" data-icon="book"></span>Roteiro da palavra</button>
+          <button class="nav-item" data-nav="pessoas"><span class="nav-icon" data-icon="people"></span>Pessoas</button>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="saved-link" id="favoritesButton"><span class="nav-icon" data-icon="heart"></span><span>Salvas</span><b id="favoriteCount">0</b></button>
+          <p>feito para dar mais espaço às pessoas.</p>
+        </div>
+      </aside>
+
+      <main class="main-content" id="inicio">
+        <header class="topbar">
+          <div><p class="date-line">QUINTA-FEIRA · 19H30</p><h1>Olá, Marcos.</h1></div>
+          <button class="focus-button" id="focusModeButton"><span class="button-icon" data-icon="play"></span><span>Modo encontro</span></button>
+        </header>
+
+        <section class="meeting-board" aria-labelledby="meeting-title">
+          <div class="meeting-copy">
+            <p class="section-kicker" id="dailyLabel">VERSÍCULO DO DIA</p>
+            <p class="daily-reference" id="dailyReference">Salmos 46:1</p>
+            <h2 id="meeting-title">Refúgio em dias difíceis</h2>
+            <p class="meeting-description" id="dailyVerse">Deus é abrigo presente, força que não se afasta quando a vida aperta.</p>
+            <p class="daily-prompt" id="dailyPrompt">Palavra da célula: Onde precisamos buscar refúgio em Deus hoje?</p>
+            <div class="meeting-actions">
+              <button class="primary-button" id="prepareButton"><span class="button-icon" data-icon="arrow"></span>Ver dinâmicas para hoje</button>
+              <button class="text-button" id="randomButton">Preciso de uma ideia agora <span class="button-icon" data-icon="spark"></span></button>
+            </div>
+          </div>
+          <div class="run-of-show" aria-label="Resumo do encontro">
+            <div class="run-heading"><span>PRÓXIMO ENCONTRO</span><span>75 min</span></div>
+            <p class="next-meeting-topic">Esperança em tempos difíceis</p>
+            <ol>
+              <li><span class="run-time">19:30</span><span class="run-name">Chegada e conversa</span><span class="run-length">10 min</span></li>
+              <li><span class="run-time">19:40</span><span class="run-name">Dinâmica de abertura</span><span class="run-length">12 min</span></li>
+              <li><span class="run-time">19:52</span><span class="run-name">Palavra e diálogo</span><span class="run-length">35 min</span></li>
+              <li><span class="run-time">20:27</span><span class="run-name">Oração e despedida</span><span class="run-length">18 min</span></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="quick-row" aria-label="Atalhos do encontro">
+          <button class="quick-action" id="quickRandom"><span class="quick-icon" data-icon="shuffle"></span><span><b>Sortear dinâmica</b><small>para começar sem travar</small></span><span class="action-arrow" aria-hidden="true">→</span></button>
+          <button class="quick-action disabled-action"><span class="quick-icon" data-icon="book"></span><span><b>Montar uma palavra</b><small>em breve, por tema e tempo</small></span><span class="action-arrow" aria-hidden="true">→</span></button>
+        </section>
+
+        <section class="library" id="dinamicas" aria-labelledby="library-title">
+          <div class="section-head">
+            <div><h2 id="library-title">O que cabe no encontro de hoje?</h2></div>
+            <button class="quiet-button" id="showAllButton">ver todas <span class="button-icon" data-icon="arrow"></span></button>
+          </div>
+          <div class="library-tools">
+            <label class="search-field" for="searchInput"><span class="field-icon" data-icon="search"></span><input id="searchInput" type="search" placeholder="Buscar dinâmica" /></label>
+            <div class="filter-scroll" role="group" aria-label="Filtros de dinâmicas">
+              <button class="filter active" data-filter="all">Todas</button>
+              <button class="filter" data-filter="quebrar-gelo">Quebra-gelo</button>
+              <button class="filter" data-filter="conexao">Conexão</button>
+              <button class="filter" data-filter="biblica">Bíblica</button>
+              <button class="filter" data-filter="divertida">Divertida</button>
+            </div>
+          </div>
+          <p class="result-count" id="activityCount" aria-live="polite">8 dinâmicas disponíveis</p>
+          <div class="activity-list" id="activityGrid"></div>
+        </section>
+      </main>
+
+      <aside class="detail-panel" id="detailPanel" aria-label="Detalhes da dinâmica"><div id="detailContent"></div></aside>
+    </div>
+    <div class="mobile-detail-backdrop" id="detailBackdrop"></div>
+    <script src="mtr-dynamics.js"></script>
+    <script src="daily-verses.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
