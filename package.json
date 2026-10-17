@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "build": "node -e \"require('fs').accessSync('dist/index.html')\" && echo build OK"
+    "build": "node -e \"require('fs').accessSync('dist/index.html')\" && echo build OK",
+    "build:dev": "npm run build"
   },
   "devDependencies": {
     "serve": "^14.2.4"
