@@ -1,0 +1,13 @@
+{
+  "name": "app-da-celula",
+  "version": "1.0.0",
+  "private": true,
+  "description": "App da Célula — dinâmicas, versículos e palavras para encontros.",
+  "scripts": {
+    "dev": "serve dist --listen 5173",
+    "start": "serve dist --listen 5173"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
