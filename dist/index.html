@@ -6,6 +6,25 @@
     <meta name="theme-color" content="#09090a" />
     <meta name="description" content="App da Célula: um espaço para preparar e conduzir encontros." />
     <title>App da Célula</title>
+    <link rel="canonical" href="https://appdacelula.com.br/" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="App da Célula" />
+    <meta property="og:title" content="App da Célula — dinâmicas, palavra e escala" />
+    <meta property="og:description" content="Dinâmicas, palavra e escala justa para sua célula. Sorteio sem repetição, Palavra alterna líder ↔ integrante, Foto por último." />
+    <meta property="og:url" content="https://appdacelula.com.br/" />
+    <meta property="og:image" content="https://appdacelula.com.br/icon-512.png" />
+    <meta property="og:image:width" content="512" />
+    <meta property="og:image:height" content="512" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="App da Célula — dinâmicas, palavra e escala" />
+    <meta name="twitter:description" content="Dinâmicas, palavra e escala justa para sua célula. Sorteio sem repetição, Palavra alterna líder ↔ integrante, Foto por último." />
+    <meta name="twitter:image" content="https://appdacelula.com.br/icon-512.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -92,5 +111,6 @@
     <script src="mtr-dynamics.js"></script>
     <script src="daily-verses.js"></script>
     <script src="app.js"></script>
+      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
   </body>
 </html>
