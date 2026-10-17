@@ -1,0 +1,32 @@
+/Users/macbook/.zprofile:9: no such file or directory: /usr/local/bin/brew
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-15T22:25:00-03:00",
+  "title": "Design System: App da Célula",
+  "extensions": {
+    "colorMeta": {
+      "void": {"role":"neutral","displayName":"Night Void","canonical":"#09090a","tonalRamp":["#1a1a1c","#101012","#09090a"]},
+      "orange": {"role":"primary","displayName":"Gathering Flame","canonical":"#f47720","tonalRamp":["#ffd4ae","#f47720","#a64110"]},
+      "glass": {"role":"secondary","displayName":"Smoked Glass","canonical":"rgba(31,31,33,.66)","tonalRamp":["rgba(255,255,255,.08)","rgba(31,31,33,.66)","rgba(16,16,18,.86)"]}
+    },
+    "typographyMeta": {
+      "headline":{"displayName":"Task Headline","purpose":"Names the next real task or meeting."},
+      "body":{"displayName":"Operational Body","purpose":"Keeps instructions scannable in a live group setting."}
+    },
+    "shadows": [{"name":"hover-lift","value":"0 16px 32px rgba(0,0,0,.2)","purpose":"Activity-card hover only."}],
+    "motion": [{"name":"standard","value":"cubic-bezier(.2,.8,.2,1)","purpose":"Short state and sheet transitions."}],
+    "breakpoints": [{"name":"tablet","value":"900px"},{"name":"phone","value":"630px"}]
+  },
+  "components": [
+    {"name":"Primary Action","kind":"button","refersTo":"button-primary","description":"The one decisive action inside a task context.","html":"<button class=\"ds-btn-primary\">PREPARAR ENCONTRO</button>","css":".ds-btn-primary{height:42px;padding:0 15px;border:1px solid rgba(255,184,124,.38);border-radius:10px;background:#f47720;color:#1a0b02;font:800 12px Manrope,Arial,sans-serif;transition:transform .18s cubic-bezier(.2,.8,.2,1),background .18s}.ds-btn-primary:hover{transform:translateY(-2px);background:#ff8d38}.ds-btn-primary:focus-visible{outline:3px solid #ffd4ae;outline-offset:3px}"},
+    {"name":"Filter","kind":"chip","refersTo":"filter","description":"Compact category filter for the activity library.","html":"<button class=\"ds-filter ds-filter-active\">TODAS</button>","css":".ds-filter{border:1px solid rgba(255,255,255,.115);border-radius:9px;padding:8px 10px;background:rgba(255,255,255,.025);color:#aaa7a2;font:700 11px Manrope,Arial,sans-serif}.ds-filter-active,.ds-filter:hover{border-color:rgba(244,119,32,.52);background:#f47720;color:#210e04}"}
+  ],
+  "narrative": {
+    "northStar":"A chama que reúne",
+    "overview":"A calm night workspace that starts with the next meeting and gives leaders facilitation tools in clearly layered smoked glass.",
+    "keyCharacteristics":["black night surfaces","orange reserved for decisive action","functional translucent layers","responsive inspector sheet"],
+    "rules":[{"name":"The One Flame Rule","body":"Use solid orange only for the decisive action in a local flow.","section":"colors"}],
+    "dos":["Do make the next meeting the first thing a leader sees."],
+    "donts":["Don't use glass as a decorative texture without a hierarchy."]
+  }
+}
