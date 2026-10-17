@@ -1,5 +1,5 @@
 // App da Célula — cache-first PWA shell
-const CACHE = "adc-v1";
+const CACHE = "adc-v2";
 const ASSETS = [
   "./",
   "./index.html",
@@ -12,6 +12,7 @@ const ASSETS = [
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png",
+  "./og-image.png",
   "./assets/app-da-celula-logo.png"
 ];
 self.addEventListener("install", (e) => {
