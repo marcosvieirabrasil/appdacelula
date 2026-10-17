@@ -1,1 +1,1 @@
-{"compilerOptions":{"allowJs":true,"noEmit":true,"skipLibCheck":true},"include":[]}
+{"compilerOptions":{"allowJs":true,"checkJs":false,"noEmit":true,"skipLibCheck":true},"include":["server.mjs"]}
