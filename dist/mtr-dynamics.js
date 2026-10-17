@@ -1,4 +1,3 @@
-/Users/macbook/.zprofile:9: no such file or directory: /usr/local/bin/brew
 /* Conteúdo importado com autorização de marcosvieirabrasil/mtrapp. */
 window.mtrDynamicsCatalog = [] = [
   {
