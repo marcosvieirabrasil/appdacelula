@@ -1,4 +1,3 @@
-/Users/macbook/.zprofile:9: no such file or directory: /usr/local/bin/brew
 /* Leituras-base em linguagem simples, organizadas para a palavra diária. */
 window.dailyCellVerses = [
   {ref:'Salmos 46:1',theme:'Refúgio em dias difíceis',text:'Deus é abrigo presente, força que não se afasta quando a vida aperta.',prompt:'Onde precisamos buscar refúgio em Deus hoje?'},
