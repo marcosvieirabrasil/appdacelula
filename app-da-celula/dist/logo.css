@@ -1,0 +1,122 @@
+/Users/macbook/.zprofile:9: no such file or directory: /usr/local/bin/brew
+.brand-logo {
+  width: 176px;
+  height: 52px;
+  margin: -7px -12px;
+  padding: 0;
+  overflow: hidden;
+}
+
+.brand-logo img {
+  display: block;
+  width: 176px;
+  height: 52px;
+  object-fit: cover;
+  object-position: 50% 50%;
+  mix-blend-mode: screen;
+}
+
+@media (max-width: 900px) {
+  .brand-logo {
+    width: 145px;
+    height: 46px;
+    margin: -6px -10px;
+  }
+
+  .brand-logo img {
+    width: 145px;
+    height: 46px;
+  }
+}
+
+.detail-source,
+.detail-extra {
+  margin: 18px 0;
+  padding: 15px 16px;
+  border: 1px solid rgba(255, 132, 28, 0.22);
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255, 117, 21, 0.11), rgba(255, 255, 255, 0.025));
+}
+
+.detail-source small,
+.detail-extra small {
+  display: block;
+  color: #ff913f;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.detail-source p,
+.detail-extra p {
+  margin: 7px 0 0;
+  color: #f8f3ee;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.detail-extra {
+  display: grid;
+  grid-template-columns: 1.45fr 0.8fr;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.035);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.detail-extra > div + div {
+  padding-left: 14px;
+  border-left: 1px solid rgba(255, 255, 255, 0.11);
+}
+
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: -5px 0 21px;
+}
+
+.detail-tags span {
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 143, 54, 0.25);
+  border-radius: 999px;
+  color: #f7c69a;
+  background: rgba(255, 130, 22, 0.09);
+  font-size: 11px;
+}
+
+.avoid-note {
+  border-color: rgba(255, 181, 69, 0.28);
+  color: #eed6bf;
+}
+
+.daily-reference {
+  margin: -1px 0 10px;
+  color: #ff9b53;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.daily-prompt {
+  max-width: 470px;
+  margin: -6px 0 22px;
+  padding-left: 11px;
+  border-left: 2px solid rgba(255, 133, 34, 0.74);
+  color: #f0c09a;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+.next-meeting-topic {
+  margin: 17px 0 2px;
+  color: #f7f2ed;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+@media (max-width: 480px) {
+  .detail-extra { grid-template-columns: 1fr; }
+  .detail-extra > div + div { padding: 12px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.11); }
+}
