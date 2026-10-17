@@ -1,24 +1,17 @@
 # App da Célula
 
-app da célula
+Aplicação estática para preparar encontros de célula com dinâmicas, leituras diárias e ideias para palavras.
 
-This project was built with [Lovable](https://lovable.dev).
+## Inclui
 
-## Build with Lovable
+- 58 dinâmicas pesquisáveis, sorteáveis e salvas no navegador
+- 121 leituras-base diárias para palavras de célula, sem repetição durante 90 dias
+- Roteiro visual do próximo encontro
+- Interface responsiva em preto, laranja e glass
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/da7d612d-28c6-426d-997c-8dc61f458f3a).
+## Estrutura
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+- `dist/`: aplicação pronta para publicação
+- `.openai/hosting.json`: configuração da hospedagem do Site
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
+Site publicado: https://dinamicas-de-celula.m4rcosvieirabrasil.chatgpt.site/
