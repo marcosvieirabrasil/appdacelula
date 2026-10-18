@@ -299,6 +299,7 @@
         </nav>
         <div class="sidebar-bottom">
           <button class="saved-link" onclick="saveHistory()" title="Salvar escala atual no histórico"><span class="nav-icon" data-icon="heart"></span><span>Salvar escala</span></button>
+          <button class="saved-link" id="clearAppData" style="opacity:.92"><span class="nav-icon" data-icon="close"></span><span>Limpar dados</span></button>
           <p>feito para dar mais espaço às pessoas.</p>
         </div>
       </aside>
@@ -857,6 +858,31 @@
       const btn=document.querySelector('button[onclick="addMember()"]');
       if(btn) btn.addEventListener('click', addMember);
     })();
+    </script>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+      const btn=document.getElementById('clearAppData');
+      if(btn) btn.addEventListener('click', async ()=>{
+        if(!confirm('Limpar todos os dados do app? Isso apaga perfil, escalas e favoritos salvos no navegador.')) return;
+        try {
+          if ('serviceWorker' in navigator) {
+            const regs=await navigator.serviceWorker.getRegistrations();
+            for(const r of regs) await r.unregister();
+          }
+          if ('caches' in window) {
+            const keys=await caches.keys();
+            for(const k of keys) await caches.delete(k);
+          }
+          localStorage.clear();
+          btn.textContent='Limpando...';
+          setTimeout(()=> location.href='/', 400);
+        } catch(e){
+          localStorage.clear();
+          location.href='/';
+        }
+      });
+    });
     </script>
       <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
       <script>(()=>{try{const p=JSON.parse(localStorage.getItem('adc:profile')||'null');if(p&&p.completed&&p.hasDistribution===false){const el=document.createElement('div');el.style.cssText='margin-bottom:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';el.innerHTML='<span style=\'font-size:12px;color:#aaa7a3\'>Sua célula não distribui funções no momento. Ative quando quiser em <b style=\'color:var(--ink)\'>Configurar célula</b>.</span><a href=\'./index.html#onboarding\' style=\'padding:9px 14px;border-radius:999px;background:var(--orange);color:#1a0b02;font-weight:800;font-size:12px;text-decoration:none\'>Configurar</a>';const main=document.querySelector('.main-content');if(main) main.prepend(el);} }catch{}})();</script>

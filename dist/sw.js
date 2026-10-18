@@ -1,5 +1,5 @@
 // App da Célula — cache-first PWA shell
-const CACHE = "adc-v24";
+const CACHE = "adc-v25";
 const ASSETS = [
   "./",
   "./index.html",
@@ -48,7 +48,7 @@ self.addEventListener("fetch", (e) => {
   if (url.origin !== self.location.origin) return;
   // html — network-first fallback to cache (so deploys update)
   if (req.headers.get("accept")?.includes("text/html")) {
-    e.respondWith(fetch(req).then((r)=>{ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); return r; }).catch(()=> caches.match(req).then((r)=> r || caches.match("./index.html"))));
+    e.respondWith(fetch(req).then((r)=>{ if(r.ok){ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); } return r; }).catch(()=> caches.match(req).then((r)=> r || caches.match("./index.html"))));
     return;
   }
   // assets — cache-first
