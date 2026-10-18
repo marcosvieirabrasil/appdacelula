@@ -30,7 +30,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="logo.css" />
-      <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"App da Célula","url":"https://appdacelula.com.br/","inLanguage":"pt-BR","potentialAction":{"@type":"SearchAction","target":"https://appdacelula.com.br/palavra?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
+      <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"App da Célula","url":"https://appdacelula.com.br/","inLanguage":"pt-BR","potentialAction":{"@type":"SearchAction","target":"https://appdacelula.com.br/palavras?q={search_term_string}","query-input":"required name=search_term_string"}}</script>
   </head>
   <body>
     <div class="app-shell">
@@ -38,9 +38,9 @@
         <a class="brand brand-logo" href="/" aria-label="App da Célula, início"><picture><source srcset="assets/logo-new.webp" type="image/webp"><img src="assets/app-da-celula-logo.png" alt="App da Célula" /></picture></a>
         <nav class="side-nav">
           <a class="nav-item active" href="/" aria-current="page"><span class="nav-icon" data-icon="home"></span>Início</a>
-          <a class="nav-item" href="/dinamica"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
-          <a class="nav-item" href="/palavra"><span class="nav-icon" data-icon="book"></span>Palavras de Célula</a>
-          <a class="nav-item" href="/escala"><span class="nav-icon" data-icon="people"></span>Escala</a>
+          <a class="nav-item" href="/dinamicas"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
+          <a class="nav-item" href="/palavras"><span class="nav-icon" data-icon="book"></span>Palavras de Célula</a>
+          <a class="nav-item" href="/escalas"><span class="nav-icon" data-icon="people"></span>Escala</a>
         </nav>
         <div class="sidebar-bottom">
           <button class="saved-link" id="favoritesButton"><span class="nav-icon" data-icon="heart"></span><span>Salvas</span><b id="favoriteCount">0</b></button>
@@ -63,7 +63,7 @@
             <p class="meeting-description" id="dailyVerse">Deus é abrigo presente, força que não se afasta quando a vida aperta.</p>
             <p class="daily-prompt" id="dailyPrompt">Palavra da célula: Onde precisamos buscar refúgio em Deus hoje?</p>
             <div class="meeting-actions">
-              <a class="primary-button" id="readPalavra" href="/palavra" style="text-decoration:none">Ler texto completo <span aria-hidden="true">→</span></a>
+              <a class="primary-button" id="readPalavra" href="/palavras" style="text-decoration:none">Ler texto completo <span aria-hidden="true">→</span></a>
               <button class="text-button" id="randomButton">Preciso de uma ideia agora <span class="button-icon" data-icon="spark"></span></button>
             </div>
           </div>
@@ -71,7 +71,7 @@
 
         <section class="quick-row" aria-label="Atalhos do encontro">
           <button class="quick-action" id="quickRandom"><span class="quick-icon" data-icon="shuffle"></span><span><b>Sortear dinâmica</b><small>para começar sem travar</small></span><span class="action-arrow" aria-hidden="true">→</span></button>
-          <a class="quick-action" href="/escala"><span class="quick-icon" data-icon="people"></span><span><b>Escala da célula</b><small>quem faz o quê no próximo encontro</small></span><span class="action-arrow" aria-hidden="true">→</span></a>
+          <a class="quick-action" href="/escalas"><span class="quick-icon" data-icon="people"></span><span><b>Escala da célula</b><small>quem faz o quê no próximo encontro</small></span><span class="action-arrow" aria-hidden="true">→</span></a>
         </section>
 
         <section class="library" id="dinamicas" aria-labelledby="library-title">
@@ -158,7 +158,7 @@
     const t=new Date(), s=new Date(t.getFullYear(),t.getMonth(),t.getDate()), a=new Date(2026,0,1);
     const idx=Math.floor((s-a)/86400000);
     const today=((idx%pool.length)+pool.length)%pool.length;
-    const el=document.getElementById("readPalavra"); if(el) el.href="/palavra?v="+today;}catch{}})();
+    const el=document.getElementById("readPalavra"); if(el) el.href="/palavras?v="+today;}catch{}})();
     </script>
     <script src="onboarding.js"></script>
       <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>

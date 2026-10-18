@@ -1,14 +1,14 @@
 // App da Célula — cache-first PWA shell
-const CACHE = "adc-v17";
+const CACHE = "adc-v18";
 const ASSETS = [
   "./",
   "./index.html",
   "./escala.html",
-  "./escala/index.html",
+  "./escalas/index.html",
   "./dinamicas.html",
-  "./dinamica/index.html",
+  "./dinamicas/index.html",
   "./palavras.html",
-  "./palavra/index.html",
+  "./palavras/index.html",
   "./dinamicas.js",
   "./palavras.js",
   "./palavras-devocionais.json",
