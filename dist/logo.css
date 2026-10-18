@@ -1,7 +1,7 @@
 /Users/macbook/.zprofile:9: no such file or directory: /usr/local/bin/brew
 .brand-logo {
-  width: 166px;
-  height: 46px;
+  width: 210px;
+  height: 58px;
   margin: -4px 0 0 -2px;
   padding: 0;
   overflow: visible;
@@ -10,8 +10,8 @@
 .brand-logo img,
 .brand-logo picture {
   display: block;
-  width: 166px;
-  height: 46px;
+  width: 210px;
+  height: 58px;
 }
 
 .brand-logo img {
@@ -24,15 +24,15 @@
 
 @media (max-width: 900px) {
   .brand-logo {
-    width: 138px;
-    height: 40px;
+    width: 175px;
+    height: 50px;
     margin: -3px 0 0 -2px;
   }
 
   .brand-logo img,
   .brand-logo picture {
-    width: 138px;
-    height: 40px;
+    width: 175px;
+    height: 50px;
   }
 }
 
