@@ -55,14 +55,23 @@
     if (!grid) return;
     if (openIdx===null && !query) {
       const params = new URLSearchParams(location.search);
-      if (params.get("v")!=null) {
-        if (todayRefNorm){
+      const vParam = params.get("v");
+      if (vParam!=null) {
+        // Try as devoc index first (if within 0..66)
+        const vNum = parseInt(vParam,10);
+        if (!isNaN(vNum) && vNum>=0 && vNum < devocs.length) {
+          openIdx = vNum;
+          // Jump to page containing it
+          const targetPage = Math.floor(vNum / PAGE_SIZE) + 1;
+          if (targetPage !== page) page = targetPage;
+        } else if (todayRefNorm){
+          // Fallback: open today
           const idx = devocs.findIndex(d => normRef(d.ref)===todayRefNorm);
-          if (idx>=0) openIdx = idx;
+          if (idx>=0) { openIdx = idx; page = Math.floor(idx / PAGE_SIZE)+1; }
         }
       } else if (todayRefNorm){
         const idx = devocs.findIndex(d => normRef(d.ref)===todayRefNorm);
-        if (idx>=0 && page===1) openIdx = idx;
+        if (idx>=0 && page===1) { openIdx = idx; }
       }
     }
     if (!slice.length){

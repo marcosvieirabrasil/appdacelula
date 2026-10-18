@@ -158,7 +158,7 @@
     const t=new Date(), s=new Date(t.getFullYear(),t.getMonth(),t.getDate()), a=new Date(2026,0,1);
     const idx=Math.floor((s-a)/86400000);
     const today=((idx%pool.length)+pool.length)%pool.length;
-    const el=document.getElementById("readPalavra"); if(el) el.href="/palavras?v="+today;}catch{}})();
+    const el=document.getElementById("readPalavra"); if(el) el.href="/palavras";}catch{}})();
     </script>
     <script src="onboarding.js"></script>
       <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
