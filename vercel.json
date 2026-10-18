@@ -44,6 +44,10 @@
     {
       "source": "/dinamica.html",
       "destination": "/dinamicas/index.html"
+    },
+    {
+      "source": "/escalas.html",
+      "destination": "/escalas/index.html"
     }
   ]
 }

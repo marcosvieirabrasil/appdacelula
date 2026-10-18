@@ -128,7 +128,11 @@
   .detail-extra { grid-template-columns: 1fr; }
   .detail-extra > div + div { padding: 12px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.11); }
 }
+.btn-primary{background:var(--orange);color:#1a0b02;border:1px solid var(--orange);border-radius:999px;padding:10px 16px;font-weight:800;font-size:13px;cursor:pointer;transition:.15s var(--ease)}
+.btn-primary:hover{background:var(--orange-hot);border-color:var(--orange-hot)}
 .onboarding-overlay{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.btn-primary{background:var(--orange);color:#1a0b02;border:1px solid var(--orange);border-radius:999px;padding:10px 16px;font-weight:800;font-size:13px;cursor:pointer;transition:.15s var(--ease)}
+.btn-primary:hover{background:var(--orange-hot);border-color:var(--orange-hot)}
 .onboarding-overlay.open{display:flex}
 .onboarding-card{width:min(560px,100%);max-height:min(92vh,720px);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--hairline);border-radius:20px;background:rgba(23,23,25,.92);backdrop-filter:blur(22px) saturate(130%);-webkit-backdrop-filter:blur(22px) saturate(130%);box-shadow:0 22px 52px rgba(0,0,0,.45)}
 .onboarding-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px 12px;border-bottom:1px solid var(--hairline);background:rgba(255,255,255,.02)}
@@ -156,4 +160,6 @@
 .ob-member{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:12px;border:1px solid var(--hairline);background:rgba(255,255,255,.02)}
 .onboarding-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-top:1px solid var(--hairline);background:rgba(9,9,10,.28)}
 .onboarding-error{min-height:16px;color:#fb7185;font-size:11px;font-weight:600}
-@media(max-width:630px){.onboarding-overlay{padding:0}.onboarding-card{border-radius:16px 16px 0 0;align-self:end;max-height:96vh;width:100%}}
+@media(max-width:630px){.btn-primary{background:var(--orange);color:#1a0b02;border:1px solid var(--orange);border-radius:999px;padding:10px 16px;font-weight:800;font-size:13px;cursor:pointer;transition:.15s var(--ease)}
+.btn-primary:hover{background:var(--orange-hot);border-color:var(--orange-hot)}
+.onboarding-overlay{padding:0}.onboarding-card{border-radius:16px 16px 0 0;align-self:end;max-height:96vh;width:100%}}
