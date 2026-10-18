@@ -46,6 +46,7 @@
         </nav>
         <div class="sidebar-bottom">
           <button class="saved-link" id="favoritesButton"><span class="nav-icon" data-icon="heart"></span><span>Salvas</span><b id="favoriteCount">0</b></button>
+          <button class="saved-link" id="openOnboarding" style="margin-top:6px;opacity:.92"><span class="nav-icon" data-icon="people"></span><span>Configurar célula</span></button>
           <p>feito para dar mais espaço às pessoas.</p>
         </div>
       </aside>
@@ -98,9 +99,63 @@
       <aside class="detail-panel" id="detailPanel" aria-label="Detalhes da dinâmica"><div id="detailContent"></div></aside>
     </div>
     <div class="mobile-detail-backdrop" id="detailBackdrop"></div>
+    <div class="onboarding-overlay" id="onboardingOverlay" role="dialog" aria-modal="true" aria-labelledby="ob-title">
+      <div class="onboarding-card">
+        <div class="onboarding-head">
+          <div class="onboarding-progress"><span id="obProgress">1 / 6</span><span class="onboarding-dots" aria-hidden="true"></span></div>
+          <button class="btn-icon" id="ob-close" aria-label="Preencher depois" title="Preencher depois">✕</button>
+        </div>
+        <div class="onboarding-body">
+          <div class="onboarding-step" data-step="1">
+            <h2 id="ob-title">Qual seu nome?</h2>
+            <p>Vamos deixar o app com a sua cara.</p>
+            <div class="onboarding-field"><label for="ob-name">Seu nome</label><input id="ob-name" type="text" autocomplete="name" placeholder="Ex: Marcos" /></div>
+          </div>
+          <div class="onboarding-step" data-step="2" style="display:none">
+            <h2>Sua célula tem nome?</h2>
+            <p>Ex: Casa da Graça, Vila Esperança…</p>
+            <div class="ob-radio-row">
+              <label class="ob-radio"><input id="ob-cell-yes" type="radio" name="ob-cellHas" /> Sim</label>
+              <label class="ob-radio"><input id="ob-cell-no" type="radio" name="ob-cellHas" /> Não</label>
+            </div>
+            <div class="onboarding-field" id="ob-cellName-wrap" style="display:none"><label for="ob-cellName">Nome da célula</label><input id="ob-cellName" type="text" placeholder="Ex: Casa da Graça" /></div>
+          </div>
+          <div class="onboarding-step" data-step="3" style="display:none">
+            <h2>Quando acontece?</h2>
+            <p>Usamos para a saudação e sugestões de encontro.</p>
+            <div class="onboarding-field"><label for="ob-weekday">Dia da semana</label><select id="ob-weekday"><option value="0">Domingo</option><option value="1">Segunda-feira</option><option value="2">Terça-feira</option><option value="3">Quarta-feira</option><option value="4">Quinta-feira</option><option value="5">Sexta-feira</option><option value="6">Sábado</option></select></div>
+            <div class="onboarding-field"><label for="ob-time">Horário</label><input id="ob-time" type="time" /></div>
+          </div>
+          <div class="onboarding-step" data-step="4" style="display:none">
+            <h2>Vocês distribuem funções?</h2>
+            <p>Cada integrante leva algo (louvor, lanche, palavra…)?</p>
+            <button type="button" class="ob-choice" id="ob-dist-yes"><b>Sim, cada um leva algo</b><small>Vamos montar a escala justa</small></button>
+            <button type="button" class="ob-choice" id="ob-dist-no"><b>Não, por enquanto</b><small>Pode ativar depois em Configurar célula</small></button>
+          </div>
+          <div class="onboarding-step" data-step="5" style="display:none">
+            <h2>Quem são os integrantes?</h2>
+            <p>Adicione quem faz parte. Marque ★ quem é líder.</p>
+            <div style="display:flex;gap:8px"><input id="ob-memberName" type="text" placeholder="Nome" style="flex:1;border:1px solid var(--hairline);border-radius:999px;padding:10px 14px;background:rgba(0,0,0,.28);color:var(--ink)" autocomplete="off" /><button type="button" class="btn-primary" id="ob-addMember">Adicionar</button></div>
+            <div style="display:flex;align-items:center;justify-content:space-between"><span style="color:#706f6c;font-size:10px;font-weight:800;letter-spacing:.08em">INTEGRANTES</span><span id="ob-memberCount" class="count-pill" style="font-size:11px;padding:4px 8px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--hairline)">0</span></div>
+            <div id="ob-membersList" style="display:flex;flex-direction:column;gap:8px;max-height:240px;overflow:auto"></div>
+          </div>
+          <div class="onboarding-step" data-step="6" style="display:none">
+            <h2>Quais funções tem na sua célula?</h2>
+            <p>Selecione o que vocês revezam. Dá pra mudar depois.</p>
+            <div id="ob-tasks" style="display:flex;flex-direction:column;gap:8px"></div>
+          </div>
+          <p id="ob-error" class="onboarding-error" aria-live="polite"></p>
+        </div>
+        <div class="onboarding-foot">
+          <button type="button" class="btn-secondary" id="ob-back">Voltar</button>
+          <div style="display:flex;align-items:center;gap:10px"><button type="button" style="background:none;border:none;color:#706f6c;font-size:12px;cursor:pointer" id="ob-skip">Preencher depois →</button><button type="button" class="btn-primary" id="ob-primary">Continuar</button></div>
+        </div>
+      </div>
+    </div>
     <script src="mtr-dynamics.js"></script>
     <script src="daily-verses.js"></script>
     <script src="app.js"></script>
+    <script src="onboarding.js"></script>
       <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
   </body>
 </html>

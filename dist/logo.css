@@ -127,3 +127,32 @@
   .detail-extra { grid-template-columns: 1fr; }
   .detail-extra > div + div { padding: 12px 0 0; border-left: 0; border-top: 1px solid rgba(255, 255, 255, 0.11); }
 }
+.onboarding-overlay{position:fixed;inset:0;z-index:20;display:none;align-items:center;justify-content:center;padding:18px;background:rgba(0,0,0,.58);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.onboarding-overlay.open{display:flex}
+.onboarding-card{width:min(560px,100%);max-height:min(92vh,720px);display:flex;flex-direction:column;overflow:hidden;border:1px solid var(--hairline);border-radius:20px;background:rgba(23,23,25,.92);backdrop-filter:blur(22px) saturate(130%);-webkit-backdrop-filter:blur(22px) saturate(130%);box-shadow:0 22px 52px rgba(0,0,0,.45)}
+.onboarding-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px 12px;border-bottom:1px solid var(--hairline);background:rgba(255,255,255,.02)}
+.onboarding-progress{display:flex;align-items:center;gap:8px;color:#706f6c;font-size:10px;font-weight:800;letter-spacing:.08em}
+.onboarding-dots{display:flex;gap:5px}
+.ob-dot{width:22px;height:6px;border-radius:999px;background:rgba(255,255,255,.12)}
+.ob-dot.active{background:var(--orange)}
+.ob-dot.done{background:rgba(244,119,32,.45)}
+.onboarding-body{overflow:auto;padding:22px 20px 18px}
+.onboarding-step{display:grid;gap:14px}
+.onboarding-step h2{margin:0;font-size:22px;letter-spacing:-.04em;line-height:1.08}
+.onboarding-step p{margin:0;color:#aaa7a2;font-size:12px;line-height:1.55}
+.onboarding-field{display:grid;gap:6px}
+.onboarding-field label{color:#f5f1eb;font-size:11px;font-weight:700;letter-spacing:.06em}
+.onboarding-field input[type="text"],.onboarding-field select,.onboarding-field input[type="time"]{width:100%;border:1px solid var(--hairline);border-radius:999px;padding:11px 14px;background:rgba(0,0,0,.28);color:var(--ink);font-size:13px}
+.onboarding-field input::placeholder{color:rgba(245,241,235,.35)}
+.onboarding-field input:focus,.onboarding-field select:focus{outline:none;border-color:rgba(244,119,32,.34)}
+.ob-radio-row{display:flex;gap:8px}
+.ob-radio{flex:1;display:flex;align-items:center;gap:8px;padding:12px 14px;border-radius:14px;border:1px solid var(--hairline);background:rgba(255,255,255,.02);cursor:pointer;font-weight:700;font-size:13px}
+.ob-radio input{accent-color:var(--orange)}
+.ob-choice{padding:14px;border-radius:16px;border:1px solid var(--hairline);background:rgba(255,255,255,.02);text-align:left;cursor:pointer;transition:.15s}
+.ob-choice.is-selected{border-color:rgba(244,119,32,.42);background:rgba(244,119,32,.10)}
+.ob-choice b{display:block;font-size:14px}
+.ob-choice small{color:#706f6c}
+.ob-member{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:12px;border:1px solid var(--hairline);background:rgba(255,255,255,.02)}
+.onboarding-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:14px 18px;border-top:1px solid var(--hairline);background:rgba(9,9,10,.28)}
+.onboarding-error{min-height:16px;color:#fb7185;font-size:11px;font-weight:600}
+@media(max-width:630px){.onboarding-overlay{padding:0}.onboarding-card{border-radius:16px 16px 0 0;align-self:end;max-height:96vh;width:100%}}
