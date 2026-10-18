@@ -1,17 +1,21 @@
 # App da Célula
 
-Aplicação estática para preparar encontros de célula com dinâmicas, leituras diárias e ideias para palavras.
+Aplicação estática para preparar encontros de célula com dinâmicas, palavras e escalas.
 
 ## Inclui
 
 - 58 dinâmicas pesquisáveis, sorteáveis e salvas no navegador
-- 121 leituras-base diárias para palavras de célula, sem repetição durante 90 dias
-- Roteiro visual do próximo encontro
-- Interface responsiva em preto, laranja e glass
+- 66 Palavras de Célula destrinchadas (versículo + reflexão + pergunta + oração)
+- 190 leituras-base em ciclo sem repetição
+- Escala justa com sorteio por função (Palavra alterna líder↔integrante, Foto por último)
+- Interface em preto, laranja e glass
 
-## Estrutura
+## Rodar local
 
-- `dist/`: aplicação pronta para publicação
-- `.openai/hosting.json`: configuração da hospedagem do Site
+```bash
+npm run dev
+# http://localhost:8080
+```
 
-Site publicado: https://dinamicas-de-celula.m4rcosvieirabrasil.chatgpt.site/
+- `dist/`: aplicação pronta (deploy em `appdacelula.com.br`)
+- `dist/dinamicas/`, `dist/palavras/`, `dist/escalas/`: rotas limpas `/dinamicas`, `/palavras`, `/escalas`
