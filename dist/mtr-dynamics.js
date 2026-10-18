@@ -1,5 +1,5 @@
 /* Conteúdo importado com autorização de marcosvieirabrasil/mtrapp. */
-window.mtrDynamicsCatalog = [] = [
+window.mtrDynamicsCatalog = [
   {
     id: 1, cat: "Integração", title: "Teia da Comunhão",
     verse: "1 Coríntios 12:27",
