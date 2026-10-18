@@ -125,11 +125,11 @@
     <script src="/dinamicas.js"></script>
     <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
   
-    <script>
+<script>
     document.addEventListener('DOMContentLoaded', ()=>{
       const btn=document.getElementById('clearAppData');
       if(btn) btn.addEventListener('click', async ()=>{
-        if(!confirm('Limpar todos os dados do app? Isso apaga perfil, escalas e favoritos salvos no navegador.')) return;
+        if(!confirm('Limpar todos os dados do app? Isso apaga perfil, escalas, favoritos, cache e cookies salvos no navegador.')) return;
         try {
           if ('serviceWorker' in navigator) {
             const regs=await navigator.serviceWorker.getRegistrations();
@@ -139,11 +139,38 @@
             const keys=await caches.keys();
             for(const k of keys) await caches.delete(k);
           }
+          // Cookies
+          try {
+            const cookies=document.cookie.split(';');
+            for(let c of cookies){
+              const eq=c.indexOf('=');
+              const name=eq>-1?c.substring(0,eq).trim():c.trim();
+              if(!name) continue;
+              const host=location.hostname;
+              const parts=host.split('.');
+              const domains=[host, '.'+host];
+              if(parts.length>=2) domains.push('.'+parts.slice(-2).join('.'));
+              for(const d of domains){
+                document.cookie=name+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain='+d;
+                document.cookie=name+'=; Max-Age=0; path=/; domain='+d;
+              }
+              document.cookie=name+'=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/';
+              document.cookie=name+'=; Max-Age=0; path=/';
+            }
+          } catch(e){}
+          // IndexedDB
+          try {
+            if (window.indexedDB && indexedDB.databases) {
+              const dbs=await indexedDB.databases();
+              for(const db of dbs) if(db.name) indexedDB.deleteDatabase(db.name);
+            }
+          } catch(e){}
+          try { sessionStorage.clear(); } catch(e){}
           localStorage.clear();
           btn.textContent='Limpando...';
           setTimeout(()=> location.href='/', 400);
         } catch(e){
-          localStorage.clear();
+          try{ localStorage.clear(); sessionStorage.clear(); }catch(e){}
           location.href='/';
         }
       });
