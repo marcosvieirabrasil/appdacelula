@@ -229,7 +229,7 @@
     const prof=loadProfile();
     const params=new URLSearchParams(location.search);
     const wantsOpen=params.get("onboarding")==="1" || location.hash==="#onboarding";
-    const shouldAutoOpen = !prof || (!prof.completed && !prof.skippedAt);
+    const shouldAutoOpen = false; // temporário: auto-open desativado para destravar — reative quando o modal estiver 100% (era: !prof || (!prof.completed && !prof.skippedAt))
     if(wantsOpen){
       setTimeout(()=> openModal(true), 300);
     } else if(shouldAutoOpen){
