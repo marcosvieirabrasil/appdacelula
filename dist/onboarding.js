@@ -18,10 +18,12 @@
   }
   function saveProfile(p){ localStorage.setItem(STORAGE_KEY, JSON.stringify(p)); }
   function applyProfile(p){
-    if(!p || !p.completed) return;
-    if(p.name){
-      const h1=$(".topbar h1"); if(h1) h1.textContent=`Olá, ${p.name}.`;
-    }
+    if(!p) return;
+    const h1=$(".topbar h1");
+    if(p.name && h1) h1.textContent=`Olá, ${p.name}.`;
+    else if(h1 && !p.name) h1.textContent="Olá.";
+    // date-line: if no profile or skipped, keep default QUINTA 19H30 already in HTML
+
     if(p.cellName){
       const ws=$(".workspace-switcher span:nth-child(2)"); if(ws) ws.textContent=p.cellName;
     } else if(p.cellName===null){
@@ -229,7 +231,7 @@
     const prof=loadProfile();
     const params=new URLSearchParams(location.search);
     const wantsOpen=params.get("onboarding")==="1" || location.hash==="#onboarding";
-    const shouldAutoOpen = false; // temporário: auto-open desativado para destravar — reative quando o modal estiver 100% (era: !prof || (!prof.completed && !prof.skippedAt))
+    const shouldAutoOpen = !prof || (!prof.completed && !prof.skippedAt);
     if(wantsOpen){
       setTimeout(()=> openModal(true), 300);
     } else if(shouldAutoOpen){
