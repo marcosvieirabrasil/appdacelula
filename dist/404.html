@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>App da Célula</title>
+<script>
+(function(){
+  var path=location.pathname.replace(/\/+$/,'')||'/';
+  var map={
+    '/dinamica':'/dinamicas',
+    '/palavra':'/palavras',
+    '/escala':'/escalas',
+    '/dinamicas.html':'/dinamicas',
+    '/palavras.html':'/palavras',
+    '/escala.html':'/escalas',
+    '/escalas.html':'/escalas'
+  };
+  if(map[path]){
+    location.replace(map[path]+location.search+location.hash);
+    return;
+  }
+  var tryPaths={
+    '/dinamicas':'/dinamicas/index.html',
+    '/palavras':'/palavras/index.html',
+    '/escalas':'/escalas/index.html'
+  };
+  var tryPath=tryPaths[path];
+  if(tryPath){
+    fetch(tryPath).then(function(r){ if(r.ok) return r.text(); throw 0; }).then(function(html){
+      document.open(); document.write(html); document.close();
+      history.replaceState(null,'',path+location.search+location.hash);
+    }).catch(function(){ location.replace('/'); });
+    return;
+  }
+  if(path!=='/') location.replace('/');
+})();
+</script>
+<p style="font-family:system-ui;padding:40px;color:#999">Redirecionando...</p>
