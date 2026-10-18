@@ -1,0 +1,45 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/dinamica",
+      "destination": "/dinamica/index.html"
+    },
+    {
+      "source": "/palavra",
+      "destination": "/palavra/index.html"
+    },
+    {
+      "source": "/escala",
+      "destination": "/escala/index.html"
+    },
+    {
+      "source": "/dinamicas",
+      "destination": "/dinamica/index.html"
+    },
+    {
+      "source": "/palavras",
+      "destination": "/palavra/index.html"
+    },
+    {
+      "source": "/palavra.html",
+      "destination": "/palavra/index.html"
+    },
+    {
+      "source": "/dinamica.html",
+      "destination": "/dinamica/index.html"
+    },
+    {
+      "source": "/dinamicas.html",
+      "destination": "/dinamica/index.html"
+    },
+    {
+      "source": "/palavras.html",
+      "destination": "/palavra/index.html"
+    },
+    {
+      "source": "/escala.html",
+      "destination": "/escala/index.html"
+    }
+  ]
+}

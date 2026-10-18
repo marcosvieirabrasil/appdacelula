@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#09090a" />
     <meta name="description" content="Palavras de Célula — devocionais completos para conduzir a Palavra sem sermão." />
     <title>Palavras de Célula — App da Célula</title>
-    <link rel="canonical" href="https://appdacelula.com.br/palavras.html" />
+    <link rel="canonical" href="https://appdacelula.com.br//palavra" />
     <link rel="icon" href="./favicon.ico?v=3" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="./icon-32.png?v=3" />
     <link rel="icon" type="image/png" sizes="16x16" href="./icon-16.png?v=3" />
@@ -17,7 +17,7 @@
     <meta property="og:site_name" content="App da Célula" />
     <meta property="og:title" content="Palavras de Célula — App da Célula" />
     <meta property="og:description" content="Palavras completas: versículo, reflexão e pergunta aberta para conduzir a célula." />
-    <meta property="og:url" content="https://appdacelula.com.br/palavras.html" />
+    <meta property="og:url" content="https://appdacelula.com.br//palavra" />
     <meta property="og:image" content="https://appdacelula.com.br/og-image.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
@@ -69,12 +69,12 @@
   <body>
     <div class="app-shell">
       <aside class="sidebar" aria-label="Navegação principal">
-        <a class="brand brand-logo" href="./index.html#inicio" aria-label="App da Célula, início"><picture><source srcset="assets/logo-new.webp" type="image/webp"><img src="assets/app-da-celula-logo.png" alt="App da Célula" /></picture></a>
+        <a class="brand brand-logo" href="/" aria-label="App da Célula, início"><picture><source srcset="assets/logo-new.webp" type="image/webp"><img src="assets/app-da-celula-logo.png" alt="App da Célula" /></picture></a>
         <nav class="side-nav">
-          <a class="nav-item" href="./index.html#inicio"><span class="nav-icon" data-icon="home"></span>Início</a>
-          <a class="nav-item" href="./dinamicas.html"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
-          <a class="nav-item active" aria-current="page" href="./palavras.html"><span class="nav-icon" data-icon="book"></span>Palavras de Célula</a>
-          <a class="nav-item" href="./escala.html"><span class="nav-icon" data-icon="people"></span>Escala</a>
+          <a class="nav-item" href="/"><span class="nav-icon" data-icon="home"></span>Início</a>
+          <a class="nav-item" href="/dinamica"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
+          <a class="nav-item active" aria-current="page" href="/palavra"><span class="nav-icon" data-icon="book"></span>Palavras de Célula</a>
+          <a class="nav-item" href="/escala"><span class="nav-icon" data-icon="people"></span>Escala</a>
         </nav>
         <div class="sidebar-bottom">
           <button class="saved-link" onclick="location.href='./index.html'"><span class="nav-icon" data-icon="home"></span><span>Voltar à home</span></button>
@@ -105,8 +105,8 @@
       const icon=n=>`<svg viewBox="0 0 24 24" aria-hidden="true">${icons[n]}</svg>`;
       document.querySelectorAll('[data-icon]').forEach(el=> el.innerHTML=icon(el.dataset.icon));
       document.querySelectorAll('[data-nav]').forEach(b=> b.addEventListener('click',()=>{
-        const key=b.dataset.nav; if(key==='dinamicas') location.href='./index.html#dinamicas';
-        else if(key==='inicio') location.href='./index.html#inicio';
+        const key=b.dataset.nav; if(key==='dinamicas') location.href='/dinamica';
+        else if(key==='inicio') location.href='/';
       }));
     })();
     </script>
