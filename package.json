@@ -2,12 +2,13 @@
   "name": "app-da-celula",
   "version": "1.0.0",
   "private": true,
-  "description": "App da Célula — dinâmicas, versículos e palavras para encontros.",
+  "description": "App da C\u00e9lula \u2014 din\u00e2micas, vers\u00edculos e palavras para encontros.",
   "scripts": {
     "dev": "node server.mjs",
     "start": "node server.mjs",
-    "build": "node -e \"require('fs').accessSync('dist/index.html')\" && echo build OK",
-    "build:dev": "npm run build"
+    "build": "node --check dist/app.js && node --check dist/palavras.js && node --check dist/dinamicas.js && node -e \"require('fs').accessSync('dist/index.html'); require('fs').accessSync('dist/dinamicas/index.html'); require('fs').accessSync('dist/palavras/index.html'); require('fs').accessSync('dist/escalas/index.html')\" && echo build OK",
+    "build:dev": "npm run build",
+    "test": "node --test tests/escala.test.mjs"
   },
   "devDependencies": {
     "serve": "^14.2.4"

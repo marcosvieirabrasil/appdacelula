@@ -25,6 +25,9 @@ O uso acontece no celular ou notebook, antes do encontro e no meio de uma roda d
 
 ## Capabilities and Constraints
 
+- Rotas limpas: `/` (home + dinâmicas), `/palavras` (66 estudos), `/escalas` (sorteio justo), `/dinamicas` (página completa com Sortear).
+- Regra da escala: sem repetir função até fechar o ciclo, Foto sempre por último, Palavra alterna líder ↔ integrante, célula pequena com `maxPerPerson = ceil(tarefas/pessoas)`.
+- 190 leituras em ciclo sem repetição + 66 Palavras destrinchadas.
 - Biblioteca pesquisável e filtrável de dinâmicas.
 - Favoritos ficam salvos no navegador.
 - Cada dinâmica tem instruções, duração e cronômetro.
