@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090a" />
+    <meta name="description" content="Palavras de Célula — devocionais curtos para conduzir a Palavra com pergunta aberta." />
+    <title>Palavras de Célula — App da Célula</title>
+    <link rel="canonical" href="https://appdacelula.com.br/palavras.html" />
+    <link rel="icon" href="./favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon-180.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="App da Célula" />
+    <meta property="og:title" content="Palavras de Célula — App da Célula" />
+    <meta property="og:description" content="Dicas de Palavra: devocionais curtos com pergunta aberta para conduzir a célula sem sermão." />
+    <meta property="og:url" content="https://appdacelula.com.br/palavras.html" />
+    <meta property="og:image" content="https://appdacelula.com.br/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Palavras de Célula — App da Célula" />
+    <meta name="twitter:description" content="Dicas de Palavra: devocionais curtos com pergunta aberta." />
+    <meta name="twitter:image" content="https://appdacelula.com.br/og-image.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="logo.css" />
+    <style>
+      .palavras-head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px}
+      .palavras-head h1{font-size:32px;letter-spacing:-.055em;line-height:1.06;margin:0;font-weight:800}
+      @media(min-width:900px){.palavras-head h1{font-size:36px}}
+      .palavras-sub{color:#aaa7a2;font-size:13px;margin:8px 0 0;max-width:560px}
+      .palavras-tools{display:flex;align-items:center;gap:12px;margin-bottom:18px;flex-wrap:wrap}
+      .palavras-search{flex:1;max-width:360px;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;border:1px solid var(--hairline);background:rgba(0,0,0,.28)}
+      .palavras-search input{flex:1;background:transparent;border:0;outline:0;color:var(--ink);font-size:13px}
+      .palavras-search input::placeholder{color:rgba(245,241,235,.35)}
+      .palavras-count{color:#706f6c;font-size:11px;font-weight:700}
+      .palavras-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+      @media(max-width:900px){.palavras-grid{grid-template-columns:1fr}}
+      .palavra-card{display:flex;flex-direction:column;gap:10px;padding:18px;border:1px solid var(--hairline);border-radius:16px;background:var(--glass);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:border .16s}
+      .palavra-card:hover{border-color:rgba(244,119,32,.28)}
+      .palavra-card.is-today{border-color:rgba(244,119,32,.38);background:rgba(244,119,32,.08)}
+      .palavra-top{display:flex;align-items:center;gap:8px}
+      .palavra-ref{font-size:10px;font-weight:800;letter-spacing:.08em;color:#f47720}
+      .palavra-badge{font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:999px;background:rgba(244,119,32,.14);border:1px solid rgba(244,119,32,.18);color:#fb923c}
+      .palavra-card h3{margin:0;font-size:17px;letter-spacing:-.03em;line-height:1.15}
+      .palavra-text{margin:0;color:#c9c6c1;font-size:12px;line-height:1.55}
+      .palavra-long{margin:0;color:#aaa7a2;font-size:12px;line-height:1.6;border-left:2px solid rgba(244,119,32,.22);padding-left:11px}
+      .palavra-prompt{margin:0;padding:10px 12px;border-radius:12px;background:rgba(244,119,32,.08);border:1px solid rgba(244,119,32,.14);color:#f0c09a;font-size:12px;font-weight:600}
+      .palavra-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:4px}
+      .palavra-actions .btn-secondary{font-size:11px;padding:7px 12px}
+      .palavra-copy{font-size:11px;color:#706f6c}
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Navegação principal">
+        <a class="brand brand-logo" href="./index.html#inicio" aria-label="App da Célula, início"><picture><source srcset="assets/logo-new.webp" type="image/webp"><img src="assets/app-da-celula-logo.png" alt="App da Célula" /></picture></a>
+        <nav class="side-nav">
+          <a class="nav-item" href="./index.html#inicio"><span class="nav-icon" data-icon="home"></span>Início</a>
+          <a class="nav-item" href="./index.html#dinamicas"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
+          <a class="nav-item active" aria-current="page" href="./palavras.html"><span class="nav-icon" data-icon="book"></span>Palavras de Célula</a>
+          <button class="nav-item" data-nav="pessoas"><span class="nav-icon" data-icon="people"></span>Pessoas</button>
+          <a class="nav-item" href="./escala.html"><span class="nav-icon" data-icon="people"></span>Escala</a>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="saved-link" onclick="location.href='./index.html'"><span class="nav-icon" data-icon="home"></span><span>Voltar à home</span></button>
+          <p>feito para dar mais espaço às pessoas.</p>
+        </div>
+      </aside>
+      <main class="main-content">
+        <div class="palavras-head">
+          <div>
+            <p style="margin:0 0 6px;color:#f47720;font-size:10px;font-weight:800;letter-spacing:.09em">PALAVRAS DE CÉLULA</p>
+            <h1>Dicas de Palavra para o encontro</h1>
+            <p class="palavras-sub">Cada Palavra traz referência, tema e pergunta aberta — sem sermão. Use o versículo do dia ou escolha por tema. Toque em <b style="color:var(--ink)">Ler texto completo</b> e em <b style="color:var(--ink)">Copiar para WhatsApp</b>.</p>
+          </div>
+        </div>
+        <div class="palavras-tools">
+          <label class="palavras-search"><span style="color:#706f6c">⌕</span><input id="palavrasSearch" type="search" placeholder="Buscar por tema ou referência" autocomplete="off" /></label>
+          <span id="palavrasCount" class="palavras-count"></span>
+        </div>
+        <div id="palavrasGrid" class="palavras-grid"></div>
+        <div id="palavrasPages" class="pagination" aria-label="Paginação"></div>
+      </main>
+    </div>
+    <script src="daily-verses.js"></script>
+    <script src="palavras.js"></script>
+    <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
+  </body>
+</html>
