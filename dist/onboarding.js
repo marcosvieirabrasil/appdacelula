@@ -33,7 +33,7 @@
       const dl=$(".date-line"); if(dl){
         const label=WEEKDAY_LABEL[p.weekday]||"";
         const t=(p.time||"19:30").replace(":","H");
-        dl.textContent=`${label} · ${t}`;
+        dl.textContent=`PRÓXIMO ENCONTRO: ${label} · ${t}`;
       }
     }
   }
