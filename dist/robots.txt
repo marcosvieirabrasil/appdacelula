@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://appdacelula.com.br/sitemap.xml
