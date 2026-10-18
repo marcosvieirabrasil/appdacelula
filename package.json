@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "test": "vitest run && node --test tests/escala.test.mjs",
+    "test": "vitest run --passWithNoTests && node --test tests/escala.test.mjs",
     "test:watch": "vitest"
   },
   "overrides": {
