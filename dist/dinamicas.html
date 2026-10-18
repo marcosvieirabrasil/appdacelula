@@ -117,7 +117,7 @@
       const icon=n=>`<svg viewBox="0 0 24 24" aria-hidden="true">${icons[n]}</svg>`;
       document.querySelectorAll('[data-icon]').forEach(el=> el.innerHTML=icon(el.dataset.icon));
       document.querySelectorAll('[data-nav]').forEach(b=> b.addEventListener('click',()=>{
-        else if(key==='inicio') location.href='/';
+        const key=b.dataset.nav; if(key==='inicio') location.href='/';
       }));
     })();
     </script>
