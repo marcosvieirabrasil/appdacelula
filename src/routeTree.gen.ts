@@ -9,27 +9,123 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as IndexRouteImport } from './routes/index'
+import { Route as DinamicasRouteImport } from './routes/dinamicas'
+import { Route as EscalaRouteImport } from './routes/escala'
+import { Route as EscalasRouteImport } from './routes/escalas'
+import { Route as PalavrasRouteImport } from './routes/palavras'
 
-export interface FileRoutesByFullPath {}
-export interface FileRoutesByTo {}
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DinamicasRoute = DinamicasRouteImport.update({
+  id: '/dinamicas',
+  path: '/dinamicas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscalaRoute = EscalaRouteImport.update({
+  id: '/escala',
+  path: '/escala',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EscalasRoute = EscalasRouteImport.update({
+  id: '/escalas',
+  path: '/escalas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PalavrasRoute = PalavrasRouteImport.update({
+  id: '/palavras',
+  path: '/palavras',
+  getParentRoute: () => rootRouteImport,
+} as any)
+
+export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
+  '/dinamicas': typeof DinamicasRoute
+  '/escala': typeof EscalaRoute
+  '/escalas': typeof EscalasRoute
+  '/palavras': typeof PalavrasRoute
+}
+export interface FileRoutesByTo {
+  '/': typeof IndexRoute
+  '/dinamicas': typeof DinamicasRoute
+  '/escala': typeof EscalaRoute
+  '/escalas': typeof EscalasRoute
+  '/palavras': typeof PalavrasRoute
+}
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
+  '/dinamicas': typeof DinamicasRoute
+  '/escala': typeof EscalaRoute
+  '/escalas': typeof EscalasRoute
+  '/palavras': typeof PalavrasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: never
+  fullPaths: '/' | '/dinamicas' | '/escala' | '/escalas' | '/palavras'
   fileRoutesByTo: FileRoutesByTo
-  to: never
-  id: '__root__'
+  to: '/' | '/dinamicas' | '/escala' | '/escalas' | '/palavras'
+  id: '__root__' | '/' | '/dinamicas' | '/escala' | '/escalas' | '/palavras'
   fileRoutesById: FileRoutesById
 }
-export interface RootRouteChildren {}
-
-declare module '@tanstack/react-router' {
-  interface FileRoutesByPath {}
+export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
+  DinamicasRoute: typeof DinamicasRoute
+  EscalaRoute: typeof EscalaRoute
+  EscalasRoute: typeof EscalasRoute
+  PalavrasRoute: typeof PalavrasRoute
 }
 
-const rootRouteChildren: RootRouteChildren = {}
+declare module '@tanstack/react-router' {
+  interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dinamicas': {
+      id: '/dinamicas'
+      path: '/dinamicas'
+      fullPath: '/dinamicas'
+      preLoaderRoute: typeof DinamicasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escala': {
+      id: '/escala'
+      path: '/escala'
+      fullPath: '/escala'
+      preLoaderRoute: typeof EscalaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/escalas': {
+      id: '/escalas'
+      path: '/escalas'
+      fullPath: '/escalas'
+      preLoaderRoute: typeof EscalasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/palavras': {
+      id: '/palavras'
+      path: '/palavras'
+      fullPath: '/palavras'
+      preLoaderRoute: typeof PalavrasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+  }
+}
+
+const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
+  DinamicasRoute: DinamicasRoute,
+  EscalaRoute: EscalaRoute,
+  EscalasRoute: EscalasRoute,
+  PalavrasRoute: PalavrasRoute,
+}
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
