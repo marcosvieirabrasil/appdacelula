@@ -77,7 +77,7 @@
         <section class="library" id="dinamicas" aria-labelledby="library-title">
           <div class="section-head">
             <div><h2 id="library-title">O que cabe no encontro de hoje?</h2></div>
-            <button class="quiet-button" id="showAllButton">ver todas <span class="button-icon" data-icon="arrow"></span></button>
+            <a class="quiet-button" href="/dinamicas">ver todas <span class="button-icon" data-icon="arrow"></span></a>
           </div>
           <div class="library-tools">
             <label class="search-field" for="searchInput"><span class="field-icon" data-icon="search"></span><input id="searchInput" type="search" placeholder="Buscar dinâmica" /></label>
@@ -161,6 +161,6 @@
     const el=document.getElementById("readPalavra"); if(el) el.href="/palavras?v="+today;}catch{}})();
     </script>
     <script src="onboarding.js"></script>
-      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('./sw.js').catch(()=>{}));</script>
+      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
   </body>
 </html>
