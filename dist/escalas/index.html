@@ -28,8 +28,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../styles.css" />
-    <link rel="stylesheet" href="../logo.css" />
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/logo.css" />
     <style>
       .app-shell{grid-template-columns:238px minmax(0,1fr)}
       @media(max-width:1180px){.app-shell{grid-template-columns:205px 1fr}}
@@ -290,7 +290,7 @@
   <body>
     <div class="app-shell">
       <aside class="sidebar" aria-label="Navegação principal">
-        <a class="brand brand-logo" href="/" aria-label="App da Célula, início"><picture><source srcset="../assets/logo-new.webp" type="image/webp"><img src="../assets/app-da-celula-logo.png" alt="App da Célula" /></picture></a>
+        <a class="brand brand-logo" href="/" aria-label="App da Célula, início"><picture><source srcset="/assets/logo-new.webp" type="image/webp"><img src="/assets/app-da-celula-logo.png" alt="App da Célula" /></picture></a>
         <nav class="side-nav">
           <button class="nav-item" onclick="location.href='/'"><span class="nav-icon" data-icon="home"></span>Início</button>
           <a class="nav-item" href="/dinamicas"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
@@ -399,8 +399,8 @@
 
     <div id="toast" class="toast">Copiado!</div>
 
-    <script src="../mtr-dynamics.js"></script>
-    <script src="../daily-verses.js"></script>
+    <script src="/mtr-dynamics.js"></script>
+    <script src="/daily-verses.js"></script>
     <script>
     const DISPLAY_ORDER = ['louvor','dinamica','palavra','lanche','oracao','foto'];
     const TASKS = [
@@ -860,6 +860,6 @@
     </script>
       <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
       <script>(()=>{try{const p=JSON.parse(localStorage.getItem('adc:profile')||'null');if(p&&p.completed&&p.hasDistribution===false){const el=document.createElement('div');el.style.cssText='margin-bottom:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';el.innerHTML='<span style=\'font-size:12px;color:#aaa7a3\'>Sua célula não distribui funções no momento. Ative quando quiser em <b style=\'color:var(--ink)\'>Configurar célula</b>.</span><a href=\'./index.html#onboarding\' style=\'padding:9px 14px;border-radius:999px;background:var(--orange);color:#1a0b02;font-weight:800;font-size:12px;text-decoration:none\'>Configurar</a>';const main=document.querySelector('.main-content');if(main) main.prepend(el);} }catch{}})();</script>
-    <script src="../onboarding.js"></script>
+    <script src="/onboarding.js"></script>
   </body>
 </html>
