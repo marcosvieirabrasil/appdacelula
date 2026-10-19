@@ -270,10 +270,10 @@
       .actions .btn-primary{flex:1}
       .btn-whats{
         flex:1; display:inline-flex;align-items:center;justify-content:center;gap:8px;
-        background:#22c55e; color:#fff; border:1px solid #16a34a;
+        background:#25D366; color:#fff; border:1px solid #1DA851;
         border-radius:999px; padding:10px 14px; font-weight:800; font-size:13px; cursor:pointer;
       }
-      .btn-whats:hover{background:#16a34a}
+      .btn-whats:hover{background:#1DA851}
       .toast{
         position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
         background:var(--ink); color:var(--void);
@@ -356,13 +356,13 @@
                   <span style="font-weight:800;letter-spacing:.04em;font-size:12px">ESCALA SORTEADA</span>
                   <span id="scaleStatus" class="status">aguardando sorteio</span>
                 </div>
-                <button class="btn-primary" onclick="rerollAll()" id="btnSortear">🎲 Sortear escala justa</button>
+                <button class="btn-primary" onclick="rerollAll()" id="btnSortear">🎲 Sortear escala</button>
               </div>
 
               <div id="scaleEmpty" class="empty">
                 <div class="empty-icon">🎲</div>
                 <div style="font-weight:700;font-size:13px">Nenhuma escala ainda</div>
-                <div class="small" style="max-width:420px;margin:6px auto 0">Adicione os integrantes e clique em <span style="color:var(--ink);font-weight:700">Sortear escala justa</span>. Ninguém repete função até todos já terem feito — e a Palavra alterna líder ↔ integrante.</div>
+                <div class="small" style="max-width:420px;margin:6px auto 0">Adicione os integrantes e clique em <span style="color:var(--ink);font-weight:700">Sortear escala</span>. Ninguém repete função até todos já terem feito — e a Palavra alterna líder ↔ integrante.</div>
                 <div id="needMembersWarn" class="notice notice--warn" style="display:none;justify-content:center;margin-top:10px">Adicione pelo menos 3 integrantes para sortear</div>
               </div>
 
@@ -566,7 +566,7 @@
       } else rule.style.display='none';
       const isLeaderTurn = !!palavraMember?.isLeader;
       const warnSmall = isSmallCell()
-        ? `<div class="notice notice--warn">⚠️ Célula pequena: ${active.length} funções para ${members.length} pessoas. Algumas pessoas ficarão com <b>${maxPerPerson()} funções</b> — distribuído da forma mais justa possível. A Foto fica sempre por último.</div>`
+        ? `<div class="notice notice--warn">⚠️ Célula pequena: ${active.length} funções para ${members.length} pessoas. Algumas pessoas ficarão com <b>${maxPerPerson()} funções</b> — distribuído da forma mais equilibrada possível. A Foto fica sempre por último.</div>`
         : '';
       list.innerHTML = warnSmall + active.map(t=>{
         const mid=currentAssignments[t.id];
@@ -729,7 +729,7 @@
     function rerollAll(){
       const a=computeFairAssignments(); if(!a) return;
       currentAssignments=a; currentDateStr=document.getElementById('nextDate').value;
-      save(); renderAll(); toast('Escala sorteada de forma justa ✓');
+      save(); renderAll(); toast('Escala sorteada ✓');
     }
     function rerollOne(taskId){
       if(!currentAssignments) return;
