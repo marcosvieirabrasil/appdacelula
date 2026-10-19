@@ -43,13 +43,14 @@
   .sidebar{gap:8px;padding:12px 10px}
   .brand-logo{flex:0 0 30%;max-width:30%;width:auto;height:auto;margin:0}
   .brand-logo img,.brand-logo picture{display:block;width:100%;height:auto;max-height:56px;object-fit:contain;object-position:left center}
-  .side-nav{flex:1 1 70%;min-width:0;flex-wrap:nowrap;justify-content:space-between;gap:0;margin-left:0}
-  .side-nav .nav-item{flex:0 1 auto;min-width:0;white-space:nowrap;padding:10px 5px;font-size:10.5px;letter-spacing:0}
+  .side-nav{flex:1 1 70%;min-width:0;flex-wrap:nowrap;justify-content:flex-end;gap:0;margin-left:0}
+  .side-nav .nav-item{flex:0 0 auto;min-width:0;white-space:nowrap;padding:10px 2px;font-size:10.5px;letter-spacing:0}
+  .side-nav .nav-item+.nav-item{margin-left:1px}
 }
 @media(max-width:360px){
   .sidebar{padding:12px 8px;gap:6px}
   .brand-logo{flex-basis:30%;max-width:30%}
-  .side-nav .nav-item{padding-left:4px;padding-right:4px}
+  .side-nav .nav-item{padding-left:2px;padding-right:2px}
 }
 
 .detail-source,
