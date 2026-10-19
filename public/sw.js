@@ -1,5 +1,5 @@
 // App da Célula — cache-first PWA shell
-const CACHE = "adc-v38";
+const CACHE = "adc-v39";
 const ASSETS = [
   "./",
   "/escalas",
