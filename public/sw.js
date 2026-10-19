@@ -1,13 +1,11 @@
 // App da Célula — cache-first PWA shell
-const CACHE = "adc-v34";
+const CACHE = "adc-v35";
 const ASSETS = [
   "./",
-  "./index.html",
-  "./404.html",
-  "./escalas/index.html",
-  "./escala/index.html",
-  "./dinamicas/index.html",
-  "./palavras/index.html",
+  "/escalas",
+  "/escala",
+  "/dinamicas",
+  "/palavras",
   "./dinamicas.js",
   "./palavras.js",
   "./palavras-devocionais.json",
@@ -47,7 +45,7 @@ self.addEventListener("fetch", (e) => {
   if (url.origin !== self.location.origin) return;
   // html — network-first fallback to cache (so deploys update)
   if (req.headers.get("accept")?.includes("text/html")) {
-    e.respondWith(fetch(req).then((r)=>{ if(r.ok){ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); } return r; }).catch(()=> caches.match(req).then((r)=> r || caches.match("./index.html"))));
+    e.respondWith(fetch(req).then((r)=>{ if(r.ok){ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); } return r; }).catch(()=> caches.match(req).then((r)=> r || caches.match("/"))));
     return;
   }
   // assets — cache-first

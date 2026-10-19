@@ -3,6 +3,13 @@
   let page = 1;
   let query = "";
   let openIdx = null;
+  let favoritesOnly = false;
+  let favorites = new Set();
+  try {
+    const saved = JSON.parse(localStorage.getItem('cell-word-favorites') || '[]');
+    if (Array.isArray(saved)) favorites = new Set(saved);
+  } catch {}
+  const favoriteId = d => `${d.ref}|${d.theme}`;
   const pool = (window.dailyCellVerses || []).slice();
   const todayIdPool = (() => {
     if (!pool.length) return null;
@@ -17,7 +24,7 @@
   }
   let devocs = [];
   let longByRef = {};
-  fetch("./palavras-devocionais.json").then(r => r.json()).then(j => {
+  fetch("/palavras-devocionais.json").then(r => r.json()).then(j => {
     devocs = Array.isArray(j) ? j : [];
     for (const d of devocs){
       const k = (d.ref||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/\s+/g,"");
@@ -31,6 +38,7 @@
   function filtered(){
     const q = norm(query.trim());
     let list = devocs.map((d,i) => ({d,i}));
+    if (favoritesOnly) list = list.filter(({d}) => favorites.has(favoriteId(d)));
     if (q){
       list = list.filter(({d}) => norm(d.theme+" "+d.ref+" "+d.full+" "+d.verses.join(" ")).includes(q));
     } else {
@@ -52,6 +60,11 @@
     const grid = document.getElementById("palGrid");
     const count = document.getElementById("palCount");
     if (count) count.textContent = `${list.length} ${list.length===1?"Palavra":"Palavras"}`;
+    const favoritesButton = document.getElementById('palFavorites');
+    if (favoritesButton) {
+      favoritesButton.classList.toggle('active', favoritesOnly);
+      favoritesButton.setAttribute('aria-pressed', String(favoritesOnly));
+    }
     if (!grid) return;
     if (openIdx===null && !query) {
       const params = new URLSearchParams(location.search);
@@ -75,11 +88,13 @@
       }
     }
     if (!slice.length){
-      grid.innerHTML = '<p class="pal-empty">Nenhuma Palavra encontrada.</p>';
+      grid.innerHTML = `<p class="pal-empty">${favoritesOnly ? 'Nenhuma Palavra favoritada encontrada.' : 'Nenhuma Palavra encontrada.'}</p>`;
     } else {
       grid.innerHTML = slice.map(({d,i}) => {
         const isToday = todayRefNorm && normRef(d.ref)===todayRefNorm;
         const isOpen = openIdx === i;
+        const isFavorite = favorites.has(favoriteId(d));
+        const favoriteLabel = `${isFavorite ? 'Remover dos favoritos' : 'Favoritar'}: ${d.theme}`;
         const verses = d.verses||[];
         const prayer = d.prayer||"";
         let body = "";
@@ -100,6 +115,7 @@
             <span class="pal-ref">${escapeHtml(d.ref)}</span>
             ${isToday?'<span class="pal-badge">Hoje</span>':""}
             <span style="margin-left:auto;color:#706f6c;font-size:10px">#${i+1}</span>
+            <button type="button" class="favorite pal-favorite ${isFavorite ? 'selected' : ''}" data-favorite="${i}" aria-pressed="${isFavorite}" aria-label="${escapeHtml(favoriteLabel)}" title="${escapeHtml(favoriteLabel)}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.8 8.7c0 5-8.8 10.3-8.8 10.3S3.2 13.7 3.2 8.7A4.6 4.6 0 0 1 12 6.9a4.6 4.6 0 0 1 8.8 1.8Z"/></svg></button>
           </div>
           <h3>${escapeHtml(d.theme)}</h3>
           <p class="pal-preview">${escapeHtml((d.full||"").slice(0,160))}${(d.full||"").length>160?"…":""}</p>
@@ -134,6 +150,20 @@
       search.addEventListener("input", () => { query = search.value; page=1; openIdx=null; render(); });
     }
     document.getElementById("palGrid")?.addEventListener("click", (e) => {
+      const favorite = e.target.closest('[data-favorite]');
+      if (favorite) {
+        const d = devocs[Number(favorite.dataset.favorite)];
+        if (!d) return;
+        const id = favoriteId(d);
+        const next = new Set(favorites);
+        next.has(id) ? next.delete(id) : next.add(id);
+        try {
+          localStorage.setItem('cell-word-favorites', JSON.stringify([...next]));
+          favorites = next;
+          render();
+        } catch { toast('Não foi possível salvar o favorito neste navegador.'); }
+        return;
+      }
       const tg = e.target.closest("[data-toggle]");
       if (tg){ const i=parseInt(tg.dataset.toggle,10); openIdx = openIdx===i ? null : i; render(); if(openIdx===i) setTimeout(()=> tg.closest(".pal-card")?.scrollIntoView({behavior:"smooth", block:"center"}), 80); return; }
       const cp = e.target.closest("[data-copy]");
@@ -149,6 +179,12 @@
         navigator.clipboard?.writeText(t).then(()=> toast("Copiado ✓")).catch(()=> {});
         return;
       }
+    });
+    document.getElementById('palFavorites')?.addEventListener('click', () => {
+      favoritesOnly = !favoritesOnly;
+      page = 1;
+      openIdx = null;
+      render();
     });
     document.getElementById("palPages")?.addEventListener("click", (e) => {
       const b=e.target.closest("[data-page]"); if(!b||b.disabled) return;
