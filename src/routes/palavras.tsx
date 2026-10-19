@@ -7,7 +7,7 @@ export const Route = createFileRoute("/palavras")({
   head: () => ({
     meta: [
       { title: html.match(/<title>(.*?)<\/title>/)?.[1] ?? "App da Célula" },
-      ...Array.from(html.matchAll(/<meta (name|property)="(description|og:title|og:description|og:type|twitter:card)" content="([^"]*)"/g), ([, kind, key, content]) => ({ [kind]: key, content })),
+      ...Array.from(html.matchAll(/<meta (name|property)="(description|og:title|og:description|og:type|twitter:card)" content="([^"]*)"/g), ([, kind, key, content]) => kind === "property" ? { property: key ?? "", content: content ?? "" } : { name: key ?? "", content: content ?? "" }),
     ],
   }),
   server: { handlers: { GET: () => htmlResponse(html) } },
