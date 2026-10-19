@@ -47,7 +47,7 @@
   .side-nav .nav-item{flex:0 0 auto;min-width:0;white-space:nowrap;padding:11px 2px;font-size:10.5px;letter-spacing:0;border:0;border-radius:9px;background:transparent}
   .side-nav .nav-item+.nav-item{margin-left:0}
   .side-nav .nav-item:hover{background:rgba(255,255,255,.055)}
-  .side-nav .nav-item.active{background:var(--orange-soft);border-color:transparent;box-shadow:0 0 0 2px var(--orange-soft)}
+  .side-nav .nav-item.active{background:var(--orange-soft);border-color:transparent;box-shadow:0 0 0 1px var(--orange-soft)}
 }
 @media(max-width:360px){
   .sidebar{padding:12px 8px;gap:6px}
