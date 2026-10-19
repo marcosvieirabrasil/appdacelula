@@ -1,0 +1,29 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/dinamicas",
+      "destination": "/dinamicas/index.html"
+    },
+    {
+      "source": "/palavras",
+      "destination": "/palavras/index.html"
+    },
+    {
+      "source": "/escalas",
+      "destination": "/escalas/index.html"
+    },
+    {
+      "source": "/escala",
+      "destination": "/escalas/index.html"
+    },
+    {
+      "source": "/dinamica",
+      "destination": "/dinamicas/index.html"
+    },
+    {
+      "source": "/palavra",
+      "destination": "/palavras/index.html"
+    }
+  ]
+}
