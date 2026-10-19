@@ -94,8 +94,11 @@
           <button class="primary-button" id="dinSortear"><span aria-hidden="true">🎲</span> Sortear dinâmica</button>
         </div>
         <div class="pal-tools">
-          <label class="pal-search"><span style="color:#706f6c">⌕</span><input id="dinSearch" type="search" placeholder="Buscar dinâmica" autocomplete="off" /></label>
-          <span id="dinCount" class="pal-count"></span>
+          <div style="display:flex;align-items:center;gap:8px;flex:1">
+            <label class="pal-search" style="flex:1"><span style="color:#706f6c">⌕</span><input id="dinSearch" type="search" placeholder="Buscar dinâmica" autocomplete="off" /></label>
+            <button class="filter" id="dinFavBtn" type="button" aria-pressed="false" title="Favoritas"><span class="button-icon" data-icon="heart"></span></button>
+          </div>
+          <span id="dinCount" class="pal-count" style="width:100%"></span>
         </div>
         <div class="filter-scroll" role="group" aria-label="Filtros" style="display:flex;gap:7px;overflow:auto;scrollbar-width:none;margin-bottom:18px">
           <button class="filter active" data-filter="all">Todas</button>

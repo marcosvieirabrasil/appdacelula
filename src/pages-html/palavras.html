@@ -93,9 +93,11 @@
           </div>
         </div>
         <div class="pal-tools">
-          <label class="pal-search"><span style="color:#706f6c">⌕</span><input id="palSearch" type="search" placeholder="Buscar por tema, referência ou trecho" autocomplete="off" /></label>
-          <span id="palCount" class="pal-count"></span>
-          <button class="filter" id="palFavorites" type="button" aria-pressed="false"><span class="button-icon" data-icon="heart"></span>Favoritas</button>
+          <div style="display:flex;align-items:center;gap:8px;flex:1">
+            <label class="pal-search" style="flex:1"><span style="color:#706f6c">⌕</span><input id="palSearch" type="search" placeholder="Buscar por tema, referência ou trecho" autocomplete="off" /></label>
+            <button class="filter" id="palFavorites" type="button" aria-pressed="false" title="Favoritas"><span class="button-icon" data-icon="heart"></span></button>
+          </div>
+          <span id="palCount" class="pal-count" style="width:100%"></span>
         </div>
         <div id="palGrid" class="pal-grid"></div>
         <div id="palPages" class="pagination" aria-label="Paginação"></div>
