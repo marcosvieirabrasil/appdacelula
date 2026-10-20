@@ -4,7 +4,7 @@
   const WEEKDAYS = ["Domingo","Segunda","Terça","Quarta","Quinta","Sexta","Sábado"];
   const DEFAULT_TASKS = { louvor:true, dinamica:true, palavra:true, lanche:true, foto:true, oracao:false };
   const TASK_LIST = [
-    { id:"louvor", label:"Louvor", sub:"2–3 músicas", icon:"♪" },
+    { id:"louvor", label:"Louvor", sub:"2–3 músicas", icon:"🎶" },
     { id:"dinamica", label:"Dinâmica", sub:"Quebra-gelo", icon:"🎲" },
     { id:"palavra", label:"Palavra", sub:"Leitura + diálogo", icon:"📖" },
     { id:"lanche", label:"Lanche", sub:"Levar o lanche", icon:"🍞" },
@@ -22,7 +22,7 @@
     const h1=$(".topbar h1");
     if(p.name && h1) h1.textContent=`Olá, ${p.name}.`;
     else if(h1 && !p.name) h1.textContent="Olá.";
-    // date-line: if no profile or skipped, keep default QUINTA 19H30 already in HTML
+    // date-line: if no profile or skipped, keep default QUINTA 20H already in HTML
 
     if(p.cellName){
       const ws=$(".workspace-switcher span:nth-child(2)"); if(ws) ws.textContent=p.cellName;
@@ -32,7 +32,7 @@
     if(p.weekday!=null && p.time){
       const dl=$(".date-line"); if(dl){
         const label=WEEKDAY_LABEL[p.weekday]||"";
-        const t=(p.time||"19:30").replace(":","H");
+        const t=(p.time||"20:00").replace(":","H");
         dl.textContent=`PRÓXIMO ENCONTRO: ${label} · ${t}`;
       }
     }
@@ -44,7 +44,7 @@
     cellHasName:null,
     cellName:"",
     weekday:4,
-    time:"19:30",
+    time:"20:00",
     hasDistribution:null,
     members:[],
     enabledTasks:{...DEFAULT_TASKS},
@@ -62,7 +62,7 @@
       state.cellHasName=prof.cellName?true:(prof.cellName===null?false:null);
       state.cellName=prof.cellName||"";
       state.weekday=prof.weekday!=null?prof.weekday:4;
-      state.time=prof.time||"19:30";
+      state.time=prof.time||"20:00";
       state.hasDistribution=prof.hasDistribution;
       state.members=(prof.members||[]).map(m=>({...m}));
       state.enabledTasks={...DEFAULT_TASKS, ...(prof.enabledTasks||{})};
@@ -70,7 +70,7 @@
       if(firstHasDist===false) step=4; else step=1;
     } else {
       editing=false;
-      state={ name:"", cellHasName:null, cellName:"", weekday:4, time:"19:30", hasDistribution:null, members:[], enabledTasks:{...DEFAULT_TASKS} };
+      state={ name:"", cellHasName:null, cellName:"", weekday:4, time:"20:00", hasDistribution:null, members:[], enabledTasks:{...DEFAULT_TASKS} };
       step=1;
     }
     overlay.classList.add("open");
@@ -201,6 +201,17 @@
       updatedAt:new Date().toISOString()
     };
     saveProfile(profile);
+    // Keep the scale page aligned with the meeting day selected in onboarding.
+    try{
+      const existing=JSON.parse(localStorage.getItem("adc:escala:current")||"null")||{};
+      const next=new Date();
+      const weekday=Number.isInteger(profile.weekday)?profile.weekday:4;
+      let daysAhead=(weekday-next.getDay()+7)%7;
+      if(daysAhead===0) daysAhead=7;
+      next.setDate(next.getDate()+daysAhead);
+      const dateStr=[next.getFullYear(),String(next.getMonth()+1).padStart(2,"0"),String(next.getDate()).padStart(2,"0")].join("-");
+      localStorage.setItem("adc:escala:current", JSON.stringify({ assignments:existing.assignments||null, dateStr }));
+    }catch{}
     if(profile.hasDistribution===true){
       try{
         localStorage.setItem("adc:escala:members", JSON.stringify(profile.members));
