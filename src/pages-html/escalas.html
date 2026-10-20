@@ -296,7 +296,7 @@
           <button class="nav-item" onclick="location.href='/'"><span class="nav-icon" data-icon="home"></span>Início</button>
           <a class="nav-item" href="/dinamicas"><span class="nav-icon" data-icon="spark"></span>Dinâmicas</a>
           <a class="nav-item" href="/palavras"><span class="nav-icon" data-icon="book"></span>Palavras</a>
-          <a class="nav-item active" href="/escalas" aria-current="page"><span class="nav-icon" data-icon="people"></span>Escala</a>
+          <a class="nav-item active" href="/escalas" aria-current="page"><span class="nav-icon" data-icon="people"></span>Escalas</a>
         </nav>
         <div class="sidebar-bottom">
           <button class="saved-link" onclick="saveHistory()" title="Salvar escala atual no histórico"><span class="nav-icon" data-icon="heart"></span><span>Salvar escala</span></button>
@@ -406,7 +406,7 @@
     <script>
     const DISPLAY_ORDER = ['louvor','dinamica','palavra','lanche','oracao','foto'];
     const TASKS = [
-      { id:'louvor', label:'Louvor', sub:'2–3 músicas', icon:'♪' },
+      { id:'louvor', label:'Louvor', sub:'2–3 músicas', icon:'🎶' },
       { id:'dinamica', label:'Dinâmica', sub:'Quebra-gelo', icon:'🎲' },
       { id:'palavra', label:'Palavra', sub:'Leitura + diálogo', icon:'📖' },
       { id:'lanche', label:'Lanche', sub:'Levar o lanche', icon:'🍞' },
@@ -835,7 +835,12 @@
       if(currentDateStr) di.value=currentDateStr;
       else if(!di.value){
         const d=new Date(); const day=d.getDay();
-        let add=(4-day+7)%7; if(add===0) add=7;
+        let weekday=4;
+        try{
+          const profile=JSON.parse(localStorage.getItem('adc:profile')||'null');
+          if(Number.isInteger(profile?.weekday)) weekday=profile.weekday;
+        }catch{}
+        let add=(weekday-day+7)%7; if(add===0) add=7;
         d.setDate(d.getDate()+add);
         di.value=d.toISOString().slice(0,10);
       }
