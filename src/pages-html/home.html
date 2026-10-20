@@ -105,8 +105,12 @@
         </div>
         <div class="onboarding-body">
           <div class="onboarding-step" data-step="1">
+            <div class="onboarding-intro" role="note">
+              <strong>Seu app, do jeito da sua célula.</strong>
+              <span>Preencha com atenção: o app ajusta a saudação, o próximo encontro e a escala à realidade de vocês.</span>
+            </div>
             <h2 id="ob-title">Qual seu nome?</h2>
-            <p>Vamos deixar o app com a sua cara.</p>
+            <p>Assim sabemos como falar com você no app.</p>
             <div class="onboarding-field"><label for="ob-name">Seu nome</label><input id="ob-name" type="text" autocomplete="name" placeholder="Ex: Marcos" /></div>
           </div>
           <div class="onboarding-step" data-step="2" style="display:none">
@@ -121,8 +125,10 @@
           <div class="onboarding-step" data-step="3" style="display:none">
             <h2>Quando acontece?</h2>
             <p>Usamos para a saudação e sugestões de encontro.</p>
-            <div class="onboarding-field"><label for="ob-weekday">Dia da semana</label><select id="ob-weekday"><option value="0">Domingo</option><option value="1">Segunda-feira</option><option value="2">Terça-feira</option><option value="3">Quarta-feira</option><option value="4">Quinta-feira</option><option value="5">Sexta-feira</option><option value="6">Sábado</option></select></div>
-            <div class="onboarding-field"><label for="ob-time">Horário</label><input id="ob-time" type="time" /></div>
+            <div class="ob-schedule-grid">
+              <div class="onboarding-field"><label for="ob-weekday">Dia da semana</label><select id="ob-weekday"><option value="0">Domingo</option><option value="1">Segunda-feira</option><option value="2">Terça-feira</option><option value="3">Quarta-feira</option><option value="4">Quinta-feira</option><option value="5">Sexta-feira</option><option value="6">Sábado</option></select></div>
+              <div class="onboarding-field onboarding-time-field"><label for="ob-time">Horário</label><input id="ob-time" type="time" /></div>
+            </div>
           </div>
           <div class="onboarding-step" data-step="4" style="display:none">
             <h2>Vocês distribuem funções?</h2>
