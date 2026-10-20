@@ -277,6 +277,8 @@
       .btn-whats:hover{background:#1DA851}
       .btn-whats svg{display:block;flex:0 0 18px;width:18px;height:18px;fill:#fff!important;stroke:none!important}
       .btn-whats svg path{fill:currentColor!important}
+      .actions button:disabled{opacity:.48;cursor:not-allowed;filter:saturate(.35)}
+      .actions button:disabled:hover{background:initial}
       .toast{
         position:fixed; left:50%; bottom:18px; transform:translateX(-50%);
         background:var(--ink); color:var(--void);
@@ -550,13 +552,15 @@
       const status=document.getElementById('scaleStatus');
       const rule=document.getElementById('palavraRule');
       if(!currentAssignments || Object.keys(currentAssignments).length===0){
-        empty.style.display=''; list.style.display='none'; actions.style.display='none'; preview.style.display='none';
+        empty.style.display=''; list.style.display='none'; actions.style.display='flex'; preview.style.display='none';
+        actions.querySelectorAll('button').forEach(button=>{ button.disabled=true; });
         status.textContent='aguardando sorteio'; status.className='status';
         rule.style.display='none';
         document.getElementById('needMembersWarn').style.display = members.length<3 ? '' : 'none';
         return;
       }
       empty.style.display='none'; list.style.display='flex'; actions.style.display='flex'; preview.style.display='';
+      actions.querySelectorAll('button').forEach(button=>{ button.disabled=false; });
       status.textContent='sorteada ✓'; status.className='status is-done';
       const active=getActiveTasks();
       const palavraMid=currentAssignments['palavra'];
