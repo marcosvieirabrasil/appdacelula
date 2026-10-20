@@ -213,7 +213,7 @@
       });
     });
     </script>
-      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
+      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js?v=49', { updateViaCache: 'none' }).catch(()=>{}));</script>
   
     <footer class="site-footer">
       <span>siga-nos no instagram:</span>
