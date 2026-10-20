@@ -1,5 +1,5 @@
 // App da Célula — cache-first PWA shell
-const CACHE = "adc-v49";
+const CACHE = "adc-v50";
 const ASSETS = [
   "./",
   "/escalas",
@@ -49,6 +49,6 @@ self.addEventListener("fetch", (e) => {
     e.respondWith(fetch(req).then((r)=>{ if(r.ok){ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); } return r; }).catch(()=> caches.match(req).then((r)=> r || caches.match("/"))));
     return;
   }
-  // assets — cache-first
-  e.respondWith(caches.match(req).then((hit)=> hit || fetch(req).then((r)=>{ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); return r; })));
+  // assets — network-first with offline fallback, so new activity data and scripts are not stale
+  e.respondWith(fetch(req).then((r)=>{ if(r.ok){ const c=r.clone(); caches.open(CACHE).then((ch)=>ch.put(req,c)); } return r; }).catch(()=> caches.match(req).then((hit)=> hit || Response.error())));
 });
