@@ -127,7 +127,7 @@
     })();
     </script>
     <script src="/dinamicas.js"></script>
-    <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
+    <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js?v=49', { updateViaCache: 'none' }).catch(()=>{}));</script>
   
 <script>
     document.addEventListener('DOMContentLoaded', ()=>{
