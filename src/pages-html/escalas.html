@@ -159,11 +159,11 @@
       .avatar.is-leader{background:var(--orange);color:#1a0b02}
       .member-name{flex:1;min-width:0;font-weight:600;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
       @media(max-width:560px){
-        .input-row{gap:7px}
-        .input-row .text-input{padding-inline:12px}
-        .input-row .btn-primary{flex:0 0 auto;padding-inline:12px}
+        .input-row{flex-direction:column;gap:8px}
+        .input-row .text-input{width:100%;padding-inline:12px}
+        .input-row .btn-primary{width:100%;padding-inline:12px}
         .member{gap:8px;padding:8px}
-        .badge-leader{padding:3px 6px;font-size:8px}
+        .member .badge-leader{display:none}
       }
       .badge-leader{font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:3px 7px;border-radius:999px;background:var(--orange);color:#1a0b02}
       .btn-star{
