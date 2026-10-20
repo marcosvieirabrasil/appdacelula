@@ -173,12 +173,15 @@
   function renderTasks(){
     const wrap=$("#ob-tasks");
     if(!wrap) return;
+    const selected=Object.values(state.enabledTasks).filter(Boolean).length;
+    const count=$("#ob-task-count"); if(count) count.textContent=`${selected} ${selected===1?"função ativa":"funções ativas"}`;
     wrap.innerHTML=TASK_LIST.map(t=>`
-      <label class="task-toggle ${state.enabledTasks[t.id]?"is-on":""}">
-        <input type="checkbox" class="check" ${state.enabledTasks[t.id]?"checked":""} data-task="${t.id}">
-        <span class="task-icon task-icon--${t.id}">${t.icon}</span>
-        <span style="flex:1;min-width:0"><span style="display:block;font-weight:700;font-size:12px">${t.label}</span><span style="display:block;font-size:11px;color:#706f6c">${t.sub}</span></span>
-        ${t.id==="palavra"?'<span class="badge-alterna">alterna</span>':""}
+      <label class="ob-task-choice ${state.enabledTasks[t.id]?"is-on":""}">
+        <input type="checkbox" ${state.enabledTasks[t.id]?"checked":""} data-task="${t.id}">
+        <span class="ob-task-icon" aria-hidden="true">${t.icon}</span>
+        <span class="ob-task-copy"><b>${t.label}</b><small>${t.sub}</small></span>
+        <span class="ob-task-check" aria-hidden="true">✓</span>
+        ${t.id==="palavra"?'<span class="ob-task-badge">alterna</span>':""}
       </label>
     `).join("");
   }
