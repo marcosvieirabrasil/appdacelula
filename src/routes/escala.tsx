@@ -1,14 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
-import html from "../pages-html/escala.html?raw";
-import { htmlResponse } from "../lib/serve-html";
 
-// Serves the original static page as-is (own title, description and meta tags).
+// Keeps old shared links working without maintaining a second scale page.
 export const Route = createFileRoute("/escala")({
-  head: () => ({
-    meta: [
-      { title: html.match(/<title>(.*?)<\/title>/)?.[1] ?? "App da Célula" },
-      ...Array.from(html.matchAll(/<meta (name|property)="(description|og:title|og:description|og:type|twitter:card)" content="([^"]*)"/g), ([, kind, key, content]) => kind === "property" ? { property: key ?? "", content: content ?? "" } : { name: key ?? "", content: content ?? "" }),
-    ],
-  }),
-  server: { handlers: { GET: () => htmlResponse(html) } },
+  server: {
+    handlers: {
+      GET: () =>
+        new Response(null, {
+          status: 308,
+          headers: {
+            location: "/escalas",
+            "cache-control": "public, max-age=0, must-revalidate",
+          },
+        }),
+    },
+  },
 });
