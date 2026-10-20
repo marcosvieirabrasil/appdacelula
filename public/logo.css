@@ -197,3 +197,10 @@
 .onboarding-field input[type="time"]{min-width:0;max-width:100%;padding-inline:10px;font-size:12px;font-variant-numeric:tabular-nums}
 @media(max-width:460px){.ob-schedule-grid{grid-template-columns:minmax(0,1fr) 126px;gap:10px}.onboarding-time-field input[type="time"]{padding-inline:8px;font-size:11px}}
 @media(max-width:360px){.ob-schedule-grid{grid-template-columns:minmax(0,1fr) 112px}}
+
+/* Safari no iPhone amplia campos abaixo de 16px; preserve a escala visual sem zoom. */
+@media(max-width:630px){
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea{font-size:16px!important}
+}
