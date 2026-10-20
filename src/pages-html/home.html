@@ -47,7 +47,6 @@
           <button class="saved-link" id="favoritesButton"><span class="nav-icon" data-icon="heart"></span><span>Salvas</span><b id="favoriteCount">0</b></button>
           <button class="saved-link" id="openOnboarding" style="margin-top:6px;opacity:.92"><span class="nav-icon" data-icon="people"></span><span>Configurar célula</span></button>
           <button class="saved-link" id="clearAppData" style="margin-top:6px;opacity:.92"><span class="nav-icon" data-icon="close"></span><span>Limpar dados</span></button>
-          <p>feito para dar mais espaço às pessoas.</p>
         </div>
       </aside>
 
@@ -140,8 +139,9 @@
           </div>
           <div class="onboarding-step" data-step="6" style="display:none">
             <h2>Quais funções tem na sua célula?</h2>
-            <p>Selecione o que vocês revezam. Dá pra mudar depois.</p>
-            <div id="ob-tasks" style="display:flex;flex-direction:column;gap:8px"></div>
+            <p>Escolha apenas o que vocês costumam revezar. Você poderá ajustar depois.</p>
+            <div class="ob-task-summary"><span>Funções do encontro</span><b id="ob-task-count" aria-live="polite">0 funções ativas</b></div>
+            <div id="ob-tasks" class="ob-task-grid"></div>
           </div>
           <p id="ob-error" class="onboarding-error" aria-live="polite"></p>
         </div>
