@@ -186,3 +186,14 @@
 @media(max-width:630px){.btn-primary{background:var(--orange);color:#1a0b02;border:1px solid var(--orange);border-radius:999px;padding:10px 16px;font-weight:800;font-size:13px;cursor:pointer;transition:.15s var(--ease)}
 .btn-primary:hover{background:var(--orange-hot);border-color:var(--orange-hot)}
 .onboarding-overlay{padding:0}.onboarding-card{border-radius:16px 16px 0 0;align-self:end;max-height:96vh;width:100%}}
+
+/* Onboarding — uma leitura clara e controles compactos no celular */
+.onboarding-body{overflow-x:hidden}
+.onboarding-intro{display:grid;gap:5px;padding:13px 14px;border:1px solid rgba(244,119,32,.28);border-radius:14px;background:rgba(244,119,32,.08)}
+.onboarding-intro strong{color:var(--ink);font-size:13px;letter-spacing:-.01em}
+.onboarding-intro span{color:#f0c09a;font-size:12px;line-height:1.5}
+.ob-schedule-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(122px,.54fr);gap:12px;align-items:end}
+.onboarding-field{min-width:0}
+.onboarding-field input[type="time"]{min-width:0;max-width:100%;padding-inline:10px;font-size:12px;font-variant-numeric:tabular-nums}
+@media(max-width:460px){.ob-schedule-grid{grid-template-columns:minmax(0,1fr) 126px;gap:10px}.onboarding-time-field input[type="time"]{padding-inline:8px;font-size:11px}}
+@media(max-width:360px){.ob-schedule-grid{grid-template-columns:minmax(0,1fr) 112px}}
