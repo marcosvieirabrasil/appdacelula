@@ -76,6 +76,24 @@
       .eyebrow{
         font-size:9px; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:#706f6c;
       }
+      .setup-scale{
+        display:flex;align-items:center;justify-content:space-between;gap:16px;
+        margin:0 0 16px;padding:14px 16px;
+        border:1px solid rgba(244,119,32,.3);border-radius:14px;
+        background:rgba(244,119,32,.1);
+      }
+      .setup-scale strong{display:block;font-size:13px;letter-spacing:-.01em}
+      .setup-scale p{margin:3px 0 0;color:var(--muted);font-size:11px;line-height:1.45}
+      .setup-scale__button{
+        display:inline-flex;align-items:center;justify-content:center;gap:7px;
+        flex:0 0 auto;border:1px solid var(--orange);border-radius:999px;
+        padding:9px 13px;background:var(--orange);color:#1a0b02;
+        font-size:12px;font-weight:800;text-decoration:none;white-space:nowrap;
+        transition:.15s var(--ease);
+      }
+      .setup-scale__button:hover{background:var(--orange-hot);border-color:var(--orange-hot)}
+      .setup-scale__button .nav-icon{width:15px;height:15px}
+      @media(max-width:560px){.setup-scale{align-items:flex-start;flex-direction:column}.setup-scale__button{width:100%}}
       .escala-grid{
         display:grid;
         grid-template-columns:340px 1fr;
@@ -318,6 +336,14 @@
             <input id="nextDate" type="date" class="date-input" />
           </div>
         </div>
+
+        <section class="setup-scale" aria-label="Configuração da célula">
+          <div>
+            <strong>Ainda não configurou sua célula?</strong>
+            <p>Informe o dia, horário, integrantes e funções para montar a escala com os dados certos.</p>
+          </div>
+          <a class="setup-scale__button" href="/?onboarding=1"><span class="nav-icon" data-icon="people"></span>Configurar célula</a>
+        </section>
 
         <div class="escala-grid">
           <!-- ESQUERDA -->
