@@ -922,7 +922,7 @@
       });
     });
     </script>
-      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js').catch(()=>{}));</script>
+      <script>if('serviceWorker' in navigator) addEventListener('load',()=> navigator.serviceWorker.register('/sw.js?v=49', { updateViaCache: 'none' }).catch(()=>{}));</script>
       <script>(()=>{try{const p=JSON.parse(localStorage.getItem('adc:profile')||'null');if(p&&p.completed&&p.hasDistribution===false){const el=document.createElement('div');el.style.cssText='margin-bottom:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';el.innerHTML='<span style=\'font-size:12px;color:#aaa7a3\'>Sua célula não distribui funções no momento. Ative quando quiser em <b style=\'color:var(--ink)\'>Configurar célula</b>.</span><a href=\'/?onboarding=1\' style=\'padding:9px 14px;border-radius:999px;background:var(--orange);color:#1a0b02;font-weight:800;font-size:12px;text-decoration:none\'>Configurar</a>';const main=document.querySelector('.main-content');if(main) main.prepend(el);} }catch{}})();</script>
     <script src="/onboarding.js"></script>
   
