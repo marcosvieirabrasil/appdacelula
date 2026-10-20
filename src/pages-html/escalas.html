@@ -303,8 +303,8 @@
           <a class="nav-item active" href="/escalas" aria-current="page"><span class="nav-icon" data-icon="people"></span>Escalas</a>
         </nav>
         <div class="sidebar-bottom">
-          <button class="saved-link" onclick="saveHistory()" title="Salvar escala atual no histórico"><span class="nav-icon" data-icon="heart"></span><span>Salvar escala</span></button>
-          <button class="saved-link" id="clearAppData" style="opacity:.92"><span class="nav-icon" data-icon="close"></span><span>Limpar dados</span></button>
+          <a class="saved-link" href="/?onboarding=1"><span class="nav-icon" data-icon="people"></span><span>Configurar célula</span></a>
+          <button class="saved-link" id="clearAppData" style="margin-top:6px;opacity:.92"><span class="nav-icon" data-icon="close"></span><span>Limpar dados</span></button>
         </div>
       </aside>
 
@@ -926,10 +926,9 @@
       <script>(()=>{try{const p=JSON.parse(localStorage.getItem('adc:profile')||'null');if(p&&p.completed&&p.hasDistribution===false){const el=document.createElement('div');el.style.cssText='margin-bottom:12px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap';el.innerHTML='<span style=\'font-size:12px;color:#aaa7a3\'>Sua célula não distribui funções no momento. Ative quando quiser em <b style=\'color:var(--ink)\'>Configurar célula</b>.</span><a href=\'/?onboarding=1\' style=\'padding:9px 14px;border-radius:999px;background:var(--orange);color:#1a0b02;font-weight:800;font-size:12px;text-decoration:none\'>Configurar</a>';const main=document.querySelector('.main-content');if(main) main.prepend(el);} }catch{}})();</script>
     <script src="/onboarding.js"></script>
   
-    <footer style="position:fixed;bottom:0;left:0;right:0;z-index:10;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px 16px;background:rgba(9,9,10,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(255,255,255,.08);font-size:12px;color:#aaa7a2">
+    <footer class="site-footer">
       <span>siga-nos no instagram:</span>
       <a href="https://www.instagram.com/appdacelula" target="_blank" rel="noopener" style="color:#f47720;font-weight:800;text-decoration:none">@appdacelula</a>
     </footer>
-    <div style="height:42px" aria-hidden="true"></div>
   </body>
 </html>
