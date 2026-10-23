@@ -13,9 +13,16 @@ describe('escala justa', () => {
   });
 
   it('Foto por último na ordem', () => {
-    const enabled={ louvor:true, dinamica:true, palavra:true, lanche:true, foto:true, oracao:false };
+    const enabled={ louvor:true, dinamica:true, palavra:true, oferta:true, lanche:true, foto:true, oracao:false };
     const active=getActiveTasks(enabled);
     assert.equal(active.map(t=>t.id).at(-1), 'foto');
+  });
+
+  it('Oferta fica no rodízio antes da Foto', () => {
+    const enabled={ louvor:true, dinamica:true, palavra:true, oferta:true, lanche:true, foto:true, oracao:false };
+    const active=getActiveTasks(enabled).map(task=>task.id);
+    assert.ok(active.includes('oferta'));
+    assert.ok(active.indexOf('oferta') < active.indexOf('foto'));
   });
 
   it('maxPerPerson com célula pequena', () => {
