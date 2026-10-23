@@ -2,12 +2,12 @@
 // Documentada aqui para testes e evolução futura.
 // Fonte: escala justa compartilhada pelo navegador (localStorage), sem repetição até fechar ciclo.
 
-export const DISPLAY_ORDER = ['louvor','dinamica','palavra','lanche','oracao','foto'];
+export const DISPLAY_ORDER = ['louvor','dinamica','palavra','oferta','lanche','oracao','foto'];
 
 export function getActiveTasks(enabledTasks) {
   const TASKS = [
     { id:'louvor' }, { id:'dinamica' }, { id:'palavra' },
-    { id:'lanche' }, { id:'oracao' }, { id:'foto' },
+    { id:'oferta' }, { id:'lanche' }, { id:'oracao' }, { id:'foto' },
   ];
   return TASKS.filter(t => enabledTasks[t.id]).sort((a,b) => DISPLAY_ORDER.indexOf(a.id)-DISPLAY_ORDER.indexOf(b.id));
 }
