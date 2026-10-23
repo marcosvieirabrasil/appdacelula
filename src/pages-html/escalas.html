@@ -689,6 +689,13 @@
         const nome=m?m.name:'';
         lines.push(`${t.icon} *${t.label}:* ${nome}`);
       });
+      if(enabledTasks.oferta && currentAssignments?.oferta){
+        lines.push(
+          '',
+          'Lembrem-se da oferta, Provérbios 11:25 vai dizer: "A pessoa generosa prosperará."',
+          'A cultura da generosidade faz com que nosso dinheiro não domine nosso coração.'
+        );
+      }
       lines.push('','_montado em appdacelula.com.br_');
       return lines.join('\n');
     }
