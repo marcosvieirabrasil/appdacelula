@@ -192,6 +192,7 @@
       .task-icon--louvor{background:rgba(168,85,247,.16)}
       .task-icon--dinamica{background:rgba(244,119,32,.16)}
       .task-icon--palavra{background:rgba(59,130,246,.16)}
+      .task-icon--oferta{background:rgba(251,191,36,.16)}
       .task-icon--lanche{background:rgba(244,114,182,.14)}
       .task-icon--foto{background:rgba(236,72,153,.16)}
       .task-icon--oracao{background:rgba(52,211,153,.16)}
@@ -472,20 +473,21 @@
     <script src="/mtr-dynamics.js"></script>
     <script src="/daily-verses.js"></script>
     <script>
-    const DISPLAY_ORDER = ['louvor','dinamica','palavra','lanche','oracao','foto'];
+    const DISPLAY_ORDER = ['louvor','dinamica','palavra','oferta','lanche','oracao','foto'];
     const TASKS = [
       { id:'louvor', label:'Louvor', sub:'2–3 músicas', icon:'🎶' },
       { id:'dinamica', label:'Dinâmica', sub:'Quebra-gelo', icon:'🎲' },
       { id:'palavra', label:'Palavra', sub:'Leitura + diálogo', icon:'📖' },
+      { id:'oferta', label:'Oferta', sub:'Momento da contribuição', icon:'🤲' },
       { id:'lanche', label:'Lanche', sub:'Levar o lanche', icon:'🍞' },
       { id:'oracao', label:'Oração', sub:'Intercessão', icon:'🙏' },
       { id:'foto', label:'Foto', sub:'Registro p/ redes · sempre por último', icon:'📸' },
     ];
-    const TASK_ICON_CLASS = { louvor:'task-icon--louvor', dinamica:'task-icon--dinamica', palavra:'task-icon--palavra', lanche:'task-icon--lanche', foto:'task-icon--foto', oracao:'task-icon--oracao' };
+    const TASK_ICON_CLASS = { louvor:'task-icon--louvor', dinamica:'task-icon--dinamica', palavra:'task-icon--palavra', oferta:'task-icon--oferta', lanche:'task-icon--lanche', foto:'task-icon--foto', oracao:'task-icon--oracao' };
     const icons={home:'<path d="M3 10.6 12 3l9 7.6v9.1a1.3 1.3 0 0 1-1.3 1.3H4.3A1.3 1.3 0 0 1 3 19.7z"/><path d="M9 21v-6h6v6"/>',spark:'<path d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7z"/>',book:'<path d="M4 4.8A2.8 2.8 0 0 1 6.8 2H20v17H6.8A2.8 2.8 0 0 0 4 21.8z"/><path d="M4 4.8V22"/>',people:'<circle cx="9" cy="8" r="3"/><path d="M3.5 21v-1.5A4.5 4.5 0 0 1 8 15h2a4.5 4.5 0 0 1 4.5 4.5V21"/><path d="M16 5.2a3 3 0 0 1 0 5.6M18.5 15.4a4.5 4.5 0 0 1 2 3.8V21"/>',heart:'<path d="M20.8 8.7c0 5-8.8 10.3-8.8 10.3S3.2 13.7 3.2 8.7A4.6 4.6 0 0 1 12 6.9a4.6 4.6 0 0 1 8.8 1.8Z"/>'};
     const icon=name=>`<svg viewBox="0 0 24 24" aria-hidden="true">${icons[name]||''}</svg>`;document.querySelectorAll('[data-icon]').forEach(el=>el.innerHTML=icon(el.dataset.icon));
     let members = [];
-    let enabledTasks = { louvor:true, dinamica:true, palavra:true, lanche:true, foto:true, oracao:false };
+    let enabledTasks = { louvor:true, dinamica:true, palavra:true, oferta:true, lanche:true, foto:true, oracao:false };
     let history = [];
     let currentAssignments = null;
     let currentDateStr = '';
@@ -665,7 +667,7 @@
       document.getElementById('previewText').textContent = buildMessage();
     }
     function buildMessage(){
-      const ORDER_MSG=['louvor','dinamica','palavra','lanche','foto'];
+      const ORDER_MSG=['louvor','dinamica','palavra','oferta','lanche','oracao','foto'];
       const byId=Object.fromEntries(TASKS.map(t=>[t.id,t]));
       const raw=document.getElementById('nextDate')?.value;
       let titulo='*Escala da próxima célula*';
