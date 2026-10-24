@@ -56,6 +56,12 @@
         <a href="/escalas"><span class="mobile-settings-links__icon">${icons.calendarPeople}</span><span><b>Organizar escala</b><small>Defina as funções do próximo encontro</small></span>${icons.arrow}</a>
         <a href="/palavras"><span class="mobile-settings-links__icon">${icons.book}</span><span><b>Palavras da célula</b><small>Prepare a conversa da semana</small></span>${icons.arrow}</a>
       </nav>
+      <div class="mobile-feedback">
+        <a class="mobile-feedback__button" href="https://wa.me/5548991010503?text=Ol%C3%A1%21%20Tenho%20uma%20sugest%C3%A3o%20de%20melhoria%20para%20o%20App%20da%20C%C3%A9lula." target="_blank" rel="noopener">
+          <span>Quero dar sugestão de melhoria</span>${icons.arrow}
+        </a>
+        <p>Tem sugestão de melhoria? Nos envie uma mensagem no WhatsApp.</p>
+      </div>
     </aside>
     <nav class="mobile-dock" aria-label="Navegação principal">${itemMarkup}</nav>
   `);
