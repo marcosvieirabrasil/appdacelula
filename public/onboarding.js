@@ -234,7 +234,8 @@
     // toast
     const toast=document.createElement("div");
     toast.textContent="Célula configurada ✓";
-    toast.style.cssText="position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--ink);color:var(--void);font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.4);z-index:30";
+    toast.className="app-toast";
+    toast.style.cssText="background:var(--ink);color:var(--void);font-weight:700;font-size:13px;padding:10px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,.4);";
     document.body.appendChild(toast);
     setTimeout(()=> toast.remove(), 2200);
   }
