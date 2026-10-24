@@ -603,3 +603,14 @@
     backdrop-filter: none;
   }
 }
+
+
+/* O dock pertence apenas à experiência de toque. */
+@media (min-width: 768px) {
+  .mobile-app-topbar,
+  .mobile-dock,
+  .mobile-settings-backdrop,
+  .mobile-settings-panel {
+    display: none !important;
+  }
+}
