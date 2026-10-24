@@ -614,3 +614,11 @@
     display: none !important;
   }
 }
+
+
+@media (max-width: 767px) {
+  .detail-panel:not(.open) {
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
