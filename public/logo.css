@@ -811,8 +811,8 @@
   }
 
   .mobile-app-topbar {
-    min-height: 85px;
-    padding-top: max(21px, calc(env(safe-area-inset-top) + 3px));
+    min-height: 88px;
+    padding-top: max(24px, calc(env(safe-area-inset-top) + 6px));
   }
 
   .mobile-dock {
@@ -901,29 +901,29 @@
 /* Aumenta em 3px o respiro inicial nas superfícies maiores. */
 @media (min-width: 768px) and (max-width: 1023px) {
   .sidebar {
-    min-height: 81px;
-    padding-top: 15px;
+    min-height: 84px;
+    padding-top: 18px;
   }
 
   .main-content {
-    padding-top: 43px;
+    padding-top: 46px;
   }
 
   .detail-panel {
-    top: 99px;
+    top: 102px;
   }
 
   .mobile-detail-backdrop.show {
-    inset: 81px 0 0;
+    inset: 84px 0 0;
   }
 }
 
 @media (min-width: 1024px) {
   .sidebar {
-    padding-top: 31px;
+    padding-top: 34px;
   }
 
   .main-content {
-    padding-top: 42px;
+    padding-top: 45px;
   }
 }
