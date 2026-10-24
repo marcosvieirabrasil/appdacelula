@@ -622,3 +622,183 @@
     pointer-events: none;
   }
 }
+
+
+/* Camadas móveis: qualquer ação inferior respeita o dock. */
+.app-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 18px;
+  z-index: 30;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 767px) {
+  .mobile-instagram {
+    bottom: max(2px, env(safe-area-inset-bottom));
+  }
+
+  .onboarding-overlay {
+    z-index: 94;
+    inset: 0 0 var(--mobile-dock-clearance);
+    align-items: flex-end;
+    padding: 12px 12px 0;
+  }
+
+  .onboarding-card {
+    width: 100%;
+    max-height: calc(100dvh - var(--mobile-dock-clearance) - 12px);
+    border-radius: 24px;
+  }
+
+  .toast,
+  .app-toast {
+    bottom: calc(var(--mobile-dock-clearance) + 12px) !important;
+    z-index: 106 !important;
+  }
+}
+
+/* Tablet: uma barra superior tátil e um inspetor lateral, sem compactar o desktop. */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .app-shell {
+    display: block !important;
+    max-width: none;
+    min-height: 100dvh;
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 28;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 78px;
+    height: auto;
+    padding: 12px clamp(20px, 4vw, 34px);
+    border-right: 0;
+    border-bottom: 1px solid var(--hairline);
+    background: rgba(16,16,18,.82);
+    box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    -webkit-backdrop-filter: blur(26px) saturate(125%);
+    backdrop-filter: blur(26px) saturate(125%);
+  }
+
+  .brand-logo,
+  .brand-logo img,
+  .brand-logo picture {
+    width: 174px;
+    height: 50px;
+    max-width: none;
+  }
+
+  .side-nav {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 0 0 0 auto;
+  }
+
+  .side-nav .nav-item {
+    display: inline-flex;
+    width: auto;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+
+  .side-nav .nav-item .nav-icon {
+    display: inline-flex;
+  }
+
+  .sidebar-bottom {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 8px;
+    padding: 0;
+  }
+
+  .sidebar-bottom .saved-link {
+    width: auto;
+    min-height: 44px;
+    padding: 10px 12px;
+    border-color: rgba(244,119,32,.25);
+    border-radius: 12px;
+    background: rgba(244,119,32,.10);
+    color: var(--ink);
+  }
+
+  .sidebar-bottom #clearAppData {
+    display: none;
+  }
+
+  .main-content {
+    padding: 40px clamp(28px, 5vw, 56px) 82px;
+  }
+
+  .detail-panel {
+    position: fixed;
+    z-index: 31;
+    top: 96px;
+    right: 20px;
+    bottom: 20px;
+    left: auto;
+    width: min(410px, calc(100vw - 40px));
+    height: auto;
+    max-height: none;
+    padding: 28px 24px;
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 20px;
+    background: rgba(23,23,25,.91);
+    box-shadow: 0 18px 50px rgba(0,0,0,.42);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(calc(100% + 34px));
+    transition: transform .26s var(--ease), opacity .2s var(--ease);
+  }
+
+  .detail-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .mobile-detail-backdrop.show {
+    position: fixed;
+    z-index: 30;
+    inset: 78px 0 0;
+    display: block;
+    background: rgba(0,0,0,.46);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+  }
+}
+
+/* Desktop: mantém a navegação persistente e torna a configuração mais fácil de encontrar. */
+@media (min-width: 1024px) {
+  .sidebar {
+    padding: 28px 17px 18px;
+  }
+
+  .nav-item {
+    min-height: 44px;
+  }
+
+  .sidebar-bottom {
+    padding: 18px 0 2px;
+    border-top: 1px solid rgba(255,255,255,.09);
+  }
+
+  .sidebar-bottom .saved-link:first-child {
+    border-color: rgba(244,119,32,.26);
+    background: rgba(244,119,32,.10);
+    color: var(--ink);
+  }
+
+  .sidebar-bottom #clearAppData {
+    margin-top: 8px;
+    font-size: 12px;
+    opacity: .72;
+  }
+}
